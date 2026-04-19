@@ -1,0 +1,135 @@
+---
+import { getCollection } from 'astro:content';
+const articles = await getCollection('articles', ({ data }) => !data.draft);
+articles.sort((a, b) => new Date(b.data.publishedAt).getTime() - new Date(a.data.publishedAt).getTime());
+---
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shift Breeze | AI・副業・キャリアの実践メディア</title>
+  <meta name="description" content="AI活用・副業・キャリアチェンジに関する実践的な情報をお届けします。" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Outfit:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --color-bg: #0f1117;
+      --color-bg-card: #1a1d27;
+      --color-border: #2a2d3e;
+      --color-accent: #6c63ff;
+      --color-accent-light: #8b85ff;
+      --color-text: #e8eaf0;
+      --color-text-muted: #8b8fa8;
+      --color-heading: #ffffff;
+      --font-body: 'Noto Sans JP', sans-serif;
+      --font-display: 'Outfit', sans-serif;
+    }
+    body {
+      background: var(--color-bg);
+      color: var(--color-text);
+      font-family: var(--font-body);
+      -webkit-font-smoothing: antialiased;
+    }
+    .site-header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(15,17,23,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--color-border);
+      padding: 0 24px;
+    }
+    .site-header__inner {
+      max-width: 1100px; margin: 0 auto;
+      height: 60px; display: flex;
+      align-items: center; justify-content: space-between;
+    }
+    .site-logo {
+      font-family: var(--font-display); font-size: 20px;
+      font-weight: 700; color: var(--color-heading); text-decoration: none;
+    }
+    .site-logo span { color: var(--color-accent); }
+    .hero {
+      padding: 80px 24px 64px; text-align: center;
+      max-width: 700px; margin: 0 auto;
+    }
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 6vw, 52px);
+      font-weight: 700; color: var(--color-heading);
+      line-height: 1.2; letter-spacing: -0.03em; margin-bottom: 16px;
+    }
+    .hero h1 span { color: var(--color-accent); }
+    .hero p { font-size: 17px; color: var(--color-text-muted); }
+    .articles-grid {
+      max-width: 1100px; margin: 0 auto; padding: 0 24px 96px;
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+    }
+    .article-card {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: 16px; overflow: hidden;
+      text-decoration: none;
+      transition: transform 0.2s, border-color 0.2s;
+      display: flex; flex-direction: column;
+    }
+    .article-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--color-accent);
+    }
+    .article-card__img {
+      width: 100%; aspect-ratio: 16/9; object-fit: cover;
+      background: linear-gradient(135deg, #1a1d27 0%, #2a2d3e 100%);
+    }
+    .article-card__body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+    .article-card__kw {
+      display: inline-block; padding: 3px 10px;
+      background: rgba(108,99,255,0.15);
+      border: 1px solid var(--color-accent);
+      border-radius: 100px; font-size: 12px;
+      color: #8b85ff; margin-bottom: 12px;
+    }
+    .article-card__title {
+      font-family: var(--font-display); font-size: 17px;
+      font-weight: 700; color: var(--color-heading);
+      line-height: 1.4; margin-bottom: 8px;
+    }
+    .article-card__desc {
+      font-size: 14px; color: var(--color-text-muted);
+      line-height: 1.6; flex: 1;
+    }
+    .article-card__date {
+      font-size: 12px; color: var(--color-text-muted);
+      margin-top: 12px; padding-top: 12px;
+      border-top: 1px solid var(--color-border);
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="/" class="site-logo">Shift<span>Breeze</span></a>
+    </div>
+  </header>
+  <div class="hero">
+    <h1>AI・副業・<span>キャリア</span>の<br>実践メディア</h1>
+    <p>検索で上位の情報より、一歩先の実践知識をお届けします</p>
+  </div>
+  <div class="articles-grid">
+    {articles.map(article => (
+      <a href={`/articles/${article.slug}`} class="article-card">
+        {article.data.eyecatch
+          ? <img class="article-card__img" src={article.data.eyecatch} alt={article.data.title} loading="lazy" />
+          : <div class="article-card__img" />
+        }
+        <div class="article-card__body">
+          <span class="article-card__kw">{article.data.keyword}</span>
+          <div class="article-card__title">{article.data.title}</div>
+          <div class="article-card__desc">{article.data.description}</div>
+          <div class="article-card__date">{article.data.publishedAt}</div>
+        </div>
+      </a>
+    ))}
+  </div>
+</body>
+</html>
