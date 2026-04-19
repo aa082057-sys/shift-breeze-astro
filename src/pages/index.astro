@@ -117,7 +117,7 @@ articles.sort((a, b) => new Date(b.data.publishedAt).getTime() - new Date(a.data
   </div>
   <div class="articles-grid">
     {articles.map(article => (
-      <a href={`/articles/${article.slug}`} class="article-card">
+      <a href={`/articles/${article.id}`} class="article-card">
         {article.data.eyecatch
           ? <img class="article-card__img" src={article.data.eyecatch} alt={article.data.title} loading="lazy" />
           : <div class="article-card__img" />
