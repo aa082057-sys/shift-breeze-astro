@@ -1,6 +1,17 @@
 ---
 const { frontmatter } = Astro.props;
-const { title, description, publishedAt, eyecatch, keyword } = frontmatter;
+const { title, description, publishedAt, eyecatch, keyword, category } = frontmatter;
+
+const CATEGORY_LABELS: Record<string, string> = {
+  'ai-side-job': 'AI副業',
+  'career': 'キャリア・転職',
+  'skill-up': 'スキルアップ',
+  'ai-tools': 'AIツール',
+  'lifestyle': '働き方・ライフスタイル',
+  'general': 'その他',
+};
+const categorySlug = category || 'general';
+const categoryLabel = CATEGORY_LABELS[categorySlug] || CATEGORY_LABELS['general'];
 ---
 <!DOCTYPE html>
 <html lang="ja">
@@ -73,8 +84,25 @@ const { title, description, publishedAt, eyecatch, keyword } = frontmatter;
     }
     .site-logo span { color: var(--color-accent); }
 
+    .breadcrumb {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 16px 24px 0;
+      font-size: 13px;
+      color: var(--color-text-muted);
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .breadcrumb a {
+      color: var(--color-accent-light);
+      text-decoration: none;
+    }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .breadcrumb__current { color: var(--color-text); }
+
     .article-hero {
-      padding: 64px 24px 48px;
+      padding: 32px 24px 48px;
       max-width: var(--max-width);
       margin: 0 auto;
     }
@@ -348,6 +376,14 @@ const { title, description, publishedAt, eyecatch, keyword } = frontmatter;
   </header>
 
   <main>
+    <nav class="breadcrumb" aria-label="パンくずリスト">
+      <a href="/">トップ</a>
+      <span>›</span>
+      <a href={`/category/${categorySlug}/`}>{categoryLabel}</a>
+      <span>›</span>
+      <span class="breadcrumb__current">{title}</span>
+    </nav>
+
     <div class="article-hero">
       <div class="article-meta">
         <span class="article-keyword">{keyword}</span>

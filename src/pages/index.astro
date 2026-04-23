@@ -1,7 +1,7 @@
 ---
 // src/pages/index.astro
-// トップページ — 固定デザイン（変更しない）
-// 記事リストは /articles/index.json から動的に読み込む
+// Phase 11: カテゴリ別セクション / 2列グリッド(PC) / リスト(SP) / サイドバー
+// index.json の popularity_source / killer_by_category / categories を利用
 ---
 <!DOCTYPE html>
 <html lang="ja">
@@ -40,7 +40,7 @@
       color: var(--text);
       font-family: var(--font-body);
       font-size: 16px;
-      line-height: 1.8;
+      line-height: 1.75;
       -webkit-font-smoothing: antialiased;
       min-height: 100vh;
     }
@@ -58,14 +58,14 @@
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 24px;
-      height: 64px;
+      height: 60px;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
     .logo {
       font-family: var(--font-display);
-      font-size: 22px;
+      font-size: 20px;
       font-weight: 800;
       color: var(--heading);
       text-decoration: none;
@@ -73,9 +73,9 @@
     }
     .logo span { color: var(--accent); }
 
-    /* ヒーロー */
+    /* ヒーロー（コンパクト化） */
     .hero {
-      padding: 96px 24px 80px;
+      padding: 56px 24px 40px;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -86,31 +86,31 @@
       top: -200px;
       left: 50%;
       transform: translateX(-50%);
-      width: 800px;
-      height: 800px;
+      width: 720px;
+      height: 720px;
       background: radial-gradient(circle, rgba(108,99,255,0.08) 0%, transparent 70%);
       pointer-events: none;
     }
     .hero__tag {
       display: inline-block;
-      padding: 6px 16px;
+      padding: 5px 14px;
       background: var(--accent-glow);
       border: 1px solid rgba(108,99,255,0.4);
       border-radius: 100px;
-      font-size: 13px;
+      font-size: 12px;
       color: #9d97ff;
       font-weight: 500;
-      margin-bottom: 24px;
+      margin-bottom: 18px;
       letter-spacing: 0.05em;
     }
     .hero__title {
       font-family: var(--font-display);
-      font-size: clamp(36px, 7vw, 64px);
+      font-size: clamp(28px, 5vw, 44px);
       font-weight: 800;
       color: var(--heading);
-      line-height: 1.15;
+      line-height: 1.2;
       letter-spacing: -0.03em;
-      margin-bottom: 20px;
+      margin-bottom: 14px;
     }
     .hero__title em {
       font-style: normal;
@@ -120,184 +120,273 @@
       background-clip: text;
     }
     .hero__desc {
-      font-size: 18px;
+      font-size: 15px;
       color: var(--text-muted);
       max-width: 520px;
       margin: 0 auto;
       line-height: 1.7;
     }
 
-    /* 記事グリッド */
-    .articles-section {
+    /* レイアウト: メイン + サイドバー */
+    .layout {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0 24px 96px;
+      padding: 0 24px 72px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
     }
+    @media (min-width: 1024px) {
+      .layout {
+        grid-template-columns: minmax(0, 1fr) 280px;
+        gap: 48px;
+      }
+    }
+
+    /* セクション */
+    .section { margin-bottom: 56px; }
     .section-header {
       display: flex;
       align-items: center;
       gap: 12px;
-      margin-bottom: 32px;
+      margin-bottom: 20px;
     }
     .section-title {
       font-family: var(--font-display);
       font-size: 20px;
       font-weight: 700;
       color: var(--heading);
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+    .section-title small {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 500;
     }
     .section-line {
       flex: 1;
       height: 1px;
       background: var(--border);
     }
-    .articles-grid {
+    .section-more {
+      font-size: 12px;
+      color: var(--accent);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .section-more:hover { text-decoration: underline; }
+
+    /* キラーカード（セクション先頭、幅広） */
+    .killer-card {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 24px;
-    }
-    @media (min-width: 640px) {
-      .articles-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-    @media (min-width: 1024px) {
-      .articles-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-    }
-
-    /* 記事カード */
-    .article-card {
+      gap: 0;
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 16px;
+      border-radius: 14px;
       overflow: hidden;
       text-decoration: none;
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      margin-bottom: 16px;
+      transition: border-color 0.2s, box-shadow 0.2s;
     }
-    .article-card:hover {
-      transform: translateY(-6px);
+    .killer-card:hover {
       border-color: var(--accent);
-      box-shadow: 0 16px 40px rgba(108,99,255,0.12);
+      box-shadow: 0 12px 32px rgba(108,99,255,0.1);
     }
-    .article-card__img {
-      width: 100%;
-      max-width: 100%;
-      height: auto;
+    .killer-card__img {
       aspect-ratio: 16/9;
+      width: 100%;
       object-fit: cover;
       background: linear-gradient(135deg, #13161f 0%, #1e2133 100%);
-      display: block;
     }
-    .article-card__img-placeholder {
-      width: 100%;
-      aspect-ratio: 16/9;
-      background: linear-gradient(135deg, #13161f 0%, #1e2133 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-muted);
-      font-size: 32px;
-    }
-    .article-card__body {
-      padding: 20px 24px 24px;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-    .article-card__kw {
+    .killer-card__body { padding: 20px 22px; }
+    .killer-card__flag {
       display: inline-block;
-      padding: 4px 12px;
-      background: var(--accent-glow);
-      border: 1px solid rgba(108,99,255,0.35);
+      padding: 3px 10px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #fff;
       border-radius: 100px;
-      font-size: 12px;
-      color: #9d97ff;
-      font-weight: 500;
-      margin-bottom: 12px;
-      width: fit-content;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      margin-bottom: 10px;
     }
-    .article-card__title {
+    .killer-card__title {
       font-family: var(--font-display);
-      font-size: 17px;
+      font-size: 18px;
       font-weight: 700;
       color: var(--heading);
       line-height: 1.45;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
-    .article-card__desc {
-      font-size: 14px;
+    .killer-card__desc {
+      font-size: 13px;
       color: var(--text-muted);
       line-height: 1.65;
-      flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    @media (min-width: 720px) {
+      .killer-card { grid-template-columns: 44% 1fr; }
+      .killer-card__img { height: 100%; aspect-ratio: auto; }
+      .killer-card__body { padding: 24px 28px; }
+      .killer-card__title { font-size: 22px; }
+      .killer-card__desc { -webkit-line-clamp: 3; font-size: 14px; }
+    }
+
+    /* 通常カードグリッド: PC=2列, SP=リスト（横長サムネ+タイトル） */
+    .cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    @media (min-width: 720px) {
+      .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    }
+
+    /* SP: 横長リスト型 */
+    .card {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 12px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px;
+      text-decoration: none;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .card:hover { border-color: var(--accent); background: var(--bg-card-hover); }
+    .card__img {
+      width: 120px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 6px;
+      background: linear-gradient(135deg, #13161f 0%, #1e2133 100%);
+    }
+    .card__body { min-width: 0; display: flex; flex-direction: column; justify-content: space-between; }
+    .card__title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--heading);
+      line-height: 1.45;
       display: -webkit-box;
       -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
       overflow: hidden;
     }
-    .article-card__footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-top: 16px;
-      padding-top: 14px;
-      border-top: 1px solid var(--border);
-    }
-    .article-card__date {
-      font-size: 12px;
+    .card__date {
+      font-size: 11px;
       color: var(--text-muted);
-    }
-    .article-card__arrow {
-      width: 28px;
-      height: 28px;
-      background: var(--accent-glow);
-      border: 1px solid rgba(108,99,255,0.3);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--accent);
-      font-size: 14px;
-      transition: background 0.15s;
-    }
-    .article-card:hover .article-card__arrow {
-      background: var(--accent);
-      color: white;
+      margin-top: 6px;
     }
 
-    /* ローディング・空状態 */
-    .loading {
-      text-align: center;
-      padding: 64px 0;
-      color: var(--text-muted);
+    /* PC: カード型へ切替 */
+    @media (min-width: 720px) {
+      .card {
+        grid-template-columns: 1fr;
+        gap: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+      .card__img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16/9;
+        border-radius: 0;
+      }
+      .card__body { padding: 14px 16px; gap: 6px; }
+      .card__title { font-size: 15px; -webkit-line-clamp: 2; }
     }
-    .empty {
-      text-align: center;
-      padding: 64px 0;
-      color: var(--text-muted);
-      grid-column: 1 / -1;
+
+    /* サイドバー */
+    .sidebar { display: flex; flex-direction: column; gap: 28px; }
+    @media (max-width: 1023px) {
+      .sidebar { order: 2; }
     }
+    .widget {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 18px 14px;
+    }
+    .widget__title {
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--heading);
+      margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+    .widget__list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .widget__list a {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 6px;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 13px;
+      line-height: 1.5;
+      transition: background 0.12s;
+    }
+    .widget__list a:hover { background: var(--bg-card-hover); color: var(--accent); }
+    .widget__list .count { color: var(--text-muted); font-size: 11px; flex-shrink: 0; }
+
+    .popular-item {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 10px;
+      padding: 6px 0;
+      text-decoration: none;
+    }
+    .popular-item__rank {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1.2;
+    }
+    .popular-item__title {
+      font-size: 12px;
+      color: var(--text);
+      line-height: 1.5;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .popular-item:hover .popular-item__title { color: var(--accent); }
 
     /* フッター */
     .footer {
       border-top: 1px solid var(--border);
-      padding: 32px 24px;
+      padding: 28px 24px;
       text-align: center;
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+    .footer a { color: var(--text-muted); text-decoration: none; }
+    .footer a:hover { color: var(--accent); }
+
+    .empty, .loading {
+      text-align: center;
+      padding: 48px 0;
       color: var(--text-muted);
       font-size: 14px;
     }
-    .footer a {
-      color: var(--text-muted);
-      text-decoration: none;
-    }
-    .footer a:hover { color: var(--accent); }
 
-    /* レスポンシブ */
-    @media (max-width: 640px) {
-      .hero { padding: 64px 16px 48px; }
-      .articles-section { padding: 0 16px 64px; }
+    @media (max-width: 720px) {
+      .hero { padding: 40px 16px 28px; }
+      .layout { padding: 0 16px 48px; gap: 32px; }
+      .section { margin-bottom: 40px; }
     }
   </style>
 </head>
@@ -321,15 +410,13 @@
       </p>
     </div>
 
-    <section class="articles-section">
-      <div class="section-header">
-        <h2 class="section-title">最新記事</h2>
-        <div class="section-line"></div>
-      </div>
-      <div class="articles-grid" id="articles-grid">
+    <div class="layout">
+      <div id="main-col">
         <div class="loading">記事を読み込んでいます...</div>
       </div>
-    </section>
+
+      <aside class="sidebar" id="sidebar"></aside>
+    </div>
   </main>
 
   <footer class="footer">
@@ -337,43 +424,120 @@
   </footer>
 
   <script>
-    async function loadArticles() {
-      const grid = document.getElementById('articles-grid');
+    function escapeHtml(s) {
+      return String(s || '').replace(/[&<>"']/g, c => ({
+        '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+      }[c]));
+    }
+
+    function renderCard(a) {
+      const img = a.eyecatch
+        ? `<img class="card__img" src="${escapeHtml(a.eyecatch)}" alt="" loading="lazy" onerror="this.style.display='none'">`
+        : `<div class="card__img"></div>`;
+      return `<a href="${escapeHtml(a.url)}" class="card">
+        ${img}
+        <div class="card__body">
+          <div class="card__title">${escapeHtml(a.title)}</div>
+          <div class="card__date">${escapeHtml(a.published_at || '')}</div>
+        </div>
+      </a>`;
+    }
+
+    function renderKiller(a, label) {
+      const img = a.eyecatch
+        ? `<img class="killer-card__img" src="${escapeHtml(a.eyecatch)}" alt="" loading="lazy">`
+        : `<div class="killer-card__img"></div>`;
+      return `<a href="${escapeHtml(a.url)}" class="killer-card">
+        ${img}
+        <div class="killer-card__body">
+          <span class="killer-card__flag">${escapeHtml(label)} ピック</span>
+          <div class="killer-card__title">${escapeHtml(a.title)}</div>
+          <div class="killer-card__desc">${escapeHtml(a.description || '')}</div>
+        </div>
+      </a>`;
+    }
+
+    function renderSection(cat, killer, rest) {
+      const more = rest.length > 5 ? `<a class="section-more" href="/category/${cat.slug}/">もっと見る →</a>` : '';
+      const killerHtml = killer ? renderKiller(killer, cat.label) : '';
+      const cardsHtml = rest.slice(0, 6).map(renderCard).join('');
+      const empty = !killer && rest.length === 0
+        ? '<div class="empty">このカテゴリの記事はまだありません。</div>'
+        : '';
+      return `<section class="section">
+        <div class="section-header">
+          <h2 class="section-title">${escapeHtml(cat.label)} <small>${killer || rest.length ? (1 + rest.length) + '記事' : ''}</small></h2>
+          <div class="section-line"></div>
+          ${more}
+        </div>
+        ${killerHtml}
+        <div class="cards">${cardsHtml}</div>
+        ${empty}
+      </section>`;
+    }
+
+    function renderSidebar(categories, counts, popular) {
+      const catList = categories
+        .filter(c => (counts[c.slug] || 0) > 0)
+        .map(c => `<li><a href="/category/${c.slug}/">${escapeHtml(c.label)} <span class="count">${counts[c.slug]}</span></a></li>`)
+        .join('');
+      const popHtml = popular.map((a, i) => `
+        <a href="${escapeHtml(a.url)}" class="popular-item">
+          <div class="popular-item__rank">${i + 1}</div>
+          <div class="popular-item__title">${escapeHtml(a.title)}</div>
+        </a>
+      `).join('');
+
+      return `
+        <div class="widget">
+          <h3 class="widget__title">カテゴリ</h3>
+          <ul class="widget__list">${catList || '<li style="color:#7b80a0;font-size:12px;">まだ記事がありません</li>'}</ul>
+        </div>
+        <div class="widget">
+          <h3 class="widget__title">人気記事</h3>
+          <div>${popHtml || '<div style="color:#7b80a0;font-size:12px;">集計中</div>'}</div>
+        </div>
+      `;
+    }
+
+    async function load() {
+      const mainCol = document.getElementById('main-col');
+      const sidebar = document.getElementById('sidebar');
       try {
         const res = await fetch('/articles/index.json');
-        if (!res.ok) throw new Error('index.json not found');
+        if (!res.ok) throw new Error('index.json missing');
         const data = await res.json();
+
         const articles = data.articles || [];
+        const categories = data.categories || [];
+        const killerByCat = data.killer_by_category || {};
+        const popular = data.popular_top5 || [];
 
         if (articles.length === 0) {
-          grid.innerHTML = '<div class="empty">記事はまだありません</div>';
+          mainCol.innerHTML = '<div class="empty">記事はまだありません</div>';
+          sidebar.innerHTML = '';
           return;
         }
 
-        grid.innerHTML = articles.map(article => `
-          <a href="${article.url}" class="article-card">
-            ${article.eyecatch
-              ? `<img class="article-card__img" src="${article.eyecatch}" alt="${article.title}" loading="lazy" onerror="this.style.display='none'">`
-              : `<div class="article-card__img-placeholder">📝</div>`
-            }
-            <div class="article-card__body">
-              <span class="article-card__kw">${article.keyword || 'AI・副業'}</span>
-              <div class="article-card__title">${article.title}</div>
-              <div class="article-card__desc">${article.description || ''}</div>
-              <div class="article-card__footer">
-                <span class="article-card__date">${article.published_at}</span>
-                <span class="article-card__arrow">→</span>
-              </div>
-            </div>
-          </a>
-        `).join('');
+        const counts = {};
+        for (const a of articles) counts[a.category || 'general'] = (counts[a.category || 'general'] || 0) + 1;
+
+        const sections = categories.map(cat => {
+          const killer = killerByCat[cat.slug];
+          const killerId = killer ? killer.task_id : null;
+          const inCat = articles.filter(a => a.category === cat.slug && a.task_id !== killerId);
+          return (killer || inCat.length) ? renderSection(cat, killer, inCat) : '';
+        }).filter(Boolean).join('');
+
+        mainCol.innerHTML = sections || '<div class="empty">記事がまだありません</div>';
+        sidebar.innerHTML = renderSidebar(categories, counts, popular);
       } catch (e) {
-        grid.innerHTML = '<div class="empty">記事の読み込みに失敗しました</div>';
-        console.error('Failed to load articles:', e);
+        console.error(e);
+        mainCol.innerHTML = '<div class="empty">記事の読み込みに失敗しました</div>';
+        sidebar.innerHTML = '';
       }
     }
-
-    loadArticles();
+    load();
   </script>
 
 </body>

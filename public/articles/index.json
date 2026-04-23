@@ -8,7 +8,8 @@
       "published_at": "2026-04-23",
       "url": "/articles/cc_20260423_044713.html",
       "eyecatch": "/images/articles/cc_20260423_044713/eyecatch.png",
-      "word_count": 0
+      "word_count": 0,
+      "category": "ai-side-job"
     },
     {
       "task_id": "cc_20260422_054243",
@@ -18,7 +19,8 @@
       "published_at": "2026-04-22",
       "url": "/articles/cc_20260422_054243.html",
       "eyecatch": "/images/articles/cc_20260422_054243/eyecatch.png",
-      "word_count": 0
+      "word_count": 0,
+      "category": "skill-up"
     },
     {
       "task_id": "cc_20260419_095302",
@@ -28,8 +30,95 @@
       "published_at": "2026-04-19",
       "url": "/articles/cc_20260419_095302.html",
       "eyecatch": "/images/articles/cc_20260419_095302/eyecatch.png",
-      "word_count": 5190
+      "word_count": 5190,
+      "category": "skill-up"
     }
   ],
-  "updated_at": "2026-04-23T04:57:07.052223+00:00"
+  "updated_at": "2026-04-23T14:27:59.868603+00:00",
+  "popularity_source": "recent",
+  "categories": [
+    {
+      "slug": "ai-side-job",
+      "label": "AI副業"
+    },
+    {
+      "slug": "career",
+      "label": "キャリア・転職"
+    },
+    {
+      "slug": "skill-up",
+      "label": "スキルアップ"
+    },
+    {
+      "slug": "ai-tools",
+      "label": "AIツール"
+    },
+    {
+      "slug": "lifestyle",
+      "label": "働き方・ライフスタイル"
+    },
+    {
+      "slug": "general",
+      "label": "その他"
+    }
+  ],
+  "popular_top5": [
+    {
+      "task_id": "cc_20260423_044713",
+      "title": "【2026年版】AI副業の始め方｜初心者が最初の1ヶ月で5万円を達成する完全ロードマップ",
+      "description": "2026年、AI副業は今が最大のチャンス。ChatGPT・Claude・Midjourney活用法から週別アクションプラン、プラットフォーム比較まで。初心者が最初の1ヶ月で月5万円を達成するための完全ガイド。",
+      "keyword": "AI 副業 始め方 2026",
+      "published_at": "2026-04-23",
+      "url": "/articles/cc_20260423_044713.html",
+      "eyecatch": "/images/articles/cc_20260423_044713/eyecatch.png",
+      "word_count": 0,
+      "category": "ai-side-job"
+    },
+    {
+      "task_id": "cc_20260422_054243",
+      "title": "AI議事録自動化ツール完全比較2026｜3タイプ別おすすめ8選と失敗しない選び方ロードマップ",
+      "description": "AI議事録の自動化ツールを「Web会議一体型・専用型・ブラウザ型」の3タイプで整理し、Notta・tl;dv・Rimo Voiceなど主要8製品を料金・精度・連携で徹底比較。導入後3カ月の落とし穴まで2026年最新版で解説。",
+      "keyword": "AI 議事録 自動化 ツール",
+      "published_at": "2026-04-22",
+      "url": "/articles/cc_20260422_054243.html",
+      "eyecatch": "/images/articles/cc_20260422_054243/eyecatch.png",
+      "word_count": 0,
+      "category": "skill-up"
+    },
+    {
+      "task_id": "cc_20260419_095302",
+      "title": "ブログ収益化の仕組みを完全図解｜初心者が月1万円までに辿る5つの導線と現実",
+      "description": "ブログから収益が生まれる仕組みを、収入源の構造・必要期間・ASPの選び方まで整理しました。憶測や煽りを排し、2026年時点のデータだけで構成しています。",
+      "keyword": "ブログ 収益化 仕組み",
+      "published_at": "2026-04-19",
+      "url": "/articles/cc_20260419_095302.html",
+      "eyecatch": "/images/articles/cc_20260419_095302/eyecatch.png",
+      "word_count": 5190,
+      "category": "skill-up"
+    }
+  ],
+  "killer_by_category": {
+    "ai-side-job": {
+      "task_id": "cc_20260423_044713",
+      "title": "【2026年版】AI副業の始め方｜初心者が最初の1ヶ月で5万円を達成する完全ロードマップ",
+      "description": "2026年、AI副業は今が最大のチャンス。ChatGPT・Claude・Midjourney活用法から週別アクションプラン、プラットフォーム比較まで。初心者が最初の1ヶ月で月5万円を達成するための完全ガイド。",
+      "keyword": "AI 副業 始め方 2026",
+      "published_at": "2026-04-23",
+      "url": "/articles/cc_20260423_044713.html",
+      "eyecatch": "/images/articles/cc_20260423_044713/eyecatch.png",
+      "word_count": 0,
+      "category": "ai-side-job"
+    },
+    "skill-up": {
+      "task_id": "cc_20260422_054243",
+      "title": "AI議事録自動化ツール完全比較2026｜3タイプ別おすすめ8選と失敗しない選び方ロードマップ",
+      "description": "AI議事録の自動化ツールを「Web会議一体型・専用型・ブラウザ型」の3タイプで整理し、Notta・tl;dv・Rimo Voiceなど主要8製品を料金・精度・連携で徹底比較。導入後3カ月の落とし穴まで2026年最新版で解説。",
+      "keyword": "AI 議事録 自動化 ツール",
+      "published_at": "2026-04-22",
+      "url": "/articles/cc_20260422_054243.html",
+      "eyecatch": "/images/articles/cc_20260422_054243/eyecatch.png",
+      "word_count": 0,
+      "category": "skill-up"
+    }
+  }
 }
