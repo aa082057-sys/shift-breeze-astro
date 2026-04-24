@@ -1,6 +1,17 @@
 {
   "articles": [
     {
+      "task_id": "cc_20260424_041100",
+      "title": "【2026年最新】ChatGPT業務効率化の具体例30選｜1日1時間トクする職種別プロンプト完全ガイド",
+      "description": "2026年最新のChatGPT（GPT-5.4）を使った業務効率化の具体例30選を職種別・業務別に徹底解説。コピペ可能なプロンプト付きで、メール・議事録・データ分析など実践的な使い方を紹介。1日40〜60分の時間短縮を実現する完全ガイド。",
+      "keyword": "ChatGPT 業務効率化 2026 具体例",
+      "category": "ai-tools",
+      "published_at": "2026-04-24",
+      "url": "/articles/cc_20260424_041100.html",
+      "eyecatch": "/images/articles/cc_20260424_041100/eyecatch.png",
+      "word_count": 0
+    },
+    {
       "task_id": "cc_20260423_044713",
       "title": "【2026年版】AI副業の始め方｜初心者が最初の1ヶ月で5万円を達成する完全ロードマップ",
       "description": "2026年、AI副業は今が最大のチャンス。ChatGPT・Claude・Midjourney活用法から週別アクションプラン、プラットフォーム比較まで。初心者が最初の1ヶ月で月5万円を達成するための完全ガイド。",
@@ -34,7 +45,7 @@
       "category": "skill-up"
     }
   ],
-  "updated_at": "2026-04-23T14:27:59.868603+00:00",
+  "updated_at": "2026-04-24T04:52:55.170904+00:00",
   "popularity_source": "recent",
   "categories": [
     {
@@ -63,6 +74,17 @@
     }
   ],
   "popular_top5": [
+    {
+      "task_id": "cc_20260424_041100",
+      "title": "【2026年最新】ChatGPT業務効率化の具体例30選｜1日1時間トクする職種別プロンプト完全ガイド",
+      "description": "2026年最新のChatGPT（GPT-5.4）を使った業務効率化の具体例30選を職種別・業務別に徹底解説。コピペ可能なプロンプト付きで、メール・議事録・データ分析など実践的な使い方を紹介。1日40〜60分の時間短縮を実現する完全ガイド。",
+      "keyword": "ChatGPT 業務効率化 2026 具体例",
+      "category": "ai-tools",
+      "published_at": "2026-04-24",
+      "url": "/articles/cc_20260424_041100.html",
+      "eyecatch": "/images/articles/cc_20260424_041100/eyecatch.png",
+      "word_count": 0
+    },
     {
       "task_id": "cc_20260423_044713",
       "title": "【2026年版】AI副業の始め方｜初心者が最初の1ヶ月で5万円を達成する完全ロードマップ",
@@ -119,6 +141,17 @@
       "eyecatch": "/images/articles/cc_20260422_054243/eyecatch.png",
       "word_count": 0,
       "category": "skill-up"
+    },
+    "ai-tools": {
+      "task_id": "cc_20260424_041100",
+      "title": "【2026年最新】ChatGPT業務効率化の具体例30選｜1日1時間トクする職種別プロンプト完全ガイド",
+      "description": "2026年最新のChatGPT（GPT-5.4）を使った業務効率化の具体例30選を職種別・業務別に徹底解説。コピペ可能なプロンプト付きで、メール・議事録・データ分析など実践的な使い方を紹介。1日40〜60分の時間短縮を実現する完全ガイド。",
+      "keyword": "ChatGPT 業務効率化 2026 具体例",
+      "category": "ai-tools",
+      "published_at": "2026-04-24",
+      "url": "/articles/cc_20260424_041100.html",
+      "eyecatch": "/images/articles/cc_20260424_041100/eyecatch.png",
+      "word_count": 0
     }
   }
 }
