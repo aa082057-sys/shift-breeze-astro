@@ -1,6 +1,17 @@
 {
   "articles": [
     {
+      "task_id": "cc_20260425_000002",
+      "title": "ChatGPT 使い方 完全ガイド【2026年最新】初心者が今日から使える基本操作と実践テクニック",
+      "description": "ChatGPTの使い方を初心者向けに徹底解説。アカウント登録からコピペOKプロンプト集、仕事・日常での活用例30選、無料版と有料版の選び方、よくある失敗と対策、3日間ロードマップまで網羅。",
+      "keyword": "ChatGPT 使い方 初心者",
+      "category": "skill-up",
+      "published_at": "2026-04-25",
+      "url": "/articles/cc_20260425_000002.html",
+      "eyecatch": "/images/articles/cc_20260425_000002/eyecatch.png",
+      "word_count": 0
+    },
+    {
       "task_id": "cc_20260424_041100",
       "title": "【2026年最新】ChatGPT業務効率化の具体例30選｜1日1時間トクする職種別プロンプト完全ガイド",
       "description": "2026年最新のChatGPT（GPT-5.4）を使った業務効率化の具体例30選を職種別・業務別に徹底解説。コピペ可能なプロンプト付きで、メール・議事録・データ分析など実践的な使い方を紹介。1日40〜60分の時間短縮を実現する完全ガイド。",
@@ -45,7 +56,7 @@
       "category": "skill-up"
     }
   ],
-  "updated_at": "2026-04-24T04:52:55.170904+00:00",
+  "updated_at": "2026-04-25T00:09:49.205951+00:00",
   "popularity_source": "recent",
   "categories": [
     {
@@ -74,6 +85,17 @@
     }
   ],
   "popular_top5": [
+    {
+      "task_id": "cc_20260425_000002",
+      "title": "ChatGPT 使い方 完全ガイド【2026年最新】初心者が今日から使える基本操作と実践テクニック",
+      "description": "ChatGPTの使い方を初心者向けに徹底解説。アカウント登録からコピペOKプロンプト集、仕事・日常での活用例30選、無料版と有料版の選び方、よくある失敗と対策、3日間ロードマップまで網羅。",
+      "keyword": "ChatGPT 使い方 初心者",
+      "category": "skill-up",
+      "published_at": "2026-04-25",
+      "url": "/articles/cc_20260425_000002.html",
+      "eyecatch": "/images/articles/cc_20260425_000002/eyecatch.png",
+      "word_count": 0
+    },
     {
       "task_id": "cc_20260424_041100",
       "title": "【2026年最新】ChatGPT業務効率化の具体例30選｜1日1時間トクする職種別プロンプト完全ガイド",
@@ -132,15 +154,15 @@
       "category": "ai-side-job"
     },
     "skill-up": {
-      "task_id": "cc_20260422_054243",
-      "title": "AI議事録自動化ツール完全比較2026｜3タイプ別おすすめ8選と失敗しない選び方ロードマップ",
-      "description": "AI議事録の自動化ツールを「Web会議一体型・専用型・ブラウザ型」の3タイプで整理し、Notta・tl;dv・Rimo Voiceなど主要8製品を料金・精度・連携で徹底比較。導入後3カ月の落とし穴まで2026年最新版で解説。",
-      "keyword": "AI 議事録 自動化 ツール",
-      "published_at": "2026-04-22",
-      "url": "/articles/cc_20260422_054243.html",
-      "eyecatch": "/images/articles/cc_20260422_054243/eyecatch.png",
-      "word_count": 0,
-      "category": "skill-up"
+      "task_id": "cc_20260425_000002",
+      "title": "ChatGPT 使い方 完全ガイド【2026年最新】初心者が今日から使える基本操作と実践テクニック",
+      "description": "ChatGPTの使い方を初心者向けに徹底解説。アカウント登録からコピペOKプロンプト集、仕事・日常での活用例30選、無料版と有料版の選び方、よくある失敗と対策、3日間ロードマップまで網羅。",
+      "keyword": "ChatGPT 使い方 初心者",
+      "category": "skill-up",
+      "published_at": "2026-04-25",
+      "url": "/articles/cc_20260425_000002.html",
+      "eyecatch": "/images/articles/cc_20260425_000002/eyecatch.png",
+      "word_count": 0
     },
     "ai-tools": {
       "task_id": "cc_20260424_041100",

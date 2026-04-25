@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChatGPT 使い方 完全ガイド【2026年最新】初心者が今日から使える基本操作と実践テクニック</title>
+  <meta name="description" content="ChatGPTの使い方を初心者向けに徹底解説。2026年最新のアカウント登録方法からプロンプトのコツ、仕事・日常での活用例まで、今日から実践できるテクニックとコピペOKプロンプト集を紹介します。">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cyan: #0891b2;
+      --cyan-dark: #0e7490;
+      --cyan-light: #e0f7fa;
+      --amber: #f59e0b;
+      --amber-dark: #d97706;
+      --slate: #1e293b;
+      --slate-mid: #475569;
+      --slate-light: #94a3b8;
+      --bg: #f0f9ff;
+      --white: #ffffff;
+      --card-bg: #ffffff;
+      --border: #e2e8f0;
+      --code-bg: #0f172a;
+      --code-text: #e2e8f0;
+      --green: #059669;
+      --red: #dc2626;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Helvetica Neue', 'Arial', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+      background-color: var(--bg);
+      color: var(--slate);
+      line-height: 1.8;
+      font-size: 16px;
+    }
+
+    /* ===== SITE HEADER ===== */
+    .site-header {
+      background: linear-gradient(135deg, var(--cyan-dark) 0%, #164e63 100%);
+      padding: 14px 24px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(14,116,144,0.3);
+    }
+    .site-header a.site-title {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      opacity: 0.95;
+      transition: opacity 0.2s;
+    }
+    .site-header a.site-title:hover { opacity: 1; }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: linear-gradient(160deg, #164e63 0%, #0891b2 55%, #06b6d4 100%);
+      color: #fff;
+      padding: 60px 24px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 260px; height: 260px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 50%;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -40px;
+      width: 320px; height: 320px;
+      background: rgba(255,255,255,0.04);
+      border-radius: 50%;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.3);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      padding: 4px 14px;
+      border-radius: 100px;
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-size: clamp(1.5rem, 5vw, 2.2rem);
+      font-weight: 800;
+      line-height: 1.4;
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+    }
+    .hero-lead {
+      font-size: 1rem;
+      opacity: 0.9;
+      max-width: 560px;
+      margin: 0 auto 28px;
+      line-height: 1.7;
+    }
+    .hero-meta {
+      font-size: 0.8rem;
+      opacity: 0.7;
+      margin-top: 8px;
+    }
+
+    /* ===== EYECATCH ===== */
+    .eyecatch-wrap {
+      max-width: 760px;
+      margin: -40px auto 0;
+      padding: 0 16px;
+      position: relative;
+      z-index: 2;
+    }
+    .eyecatch-wrap img {
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(14,116,144,0.25);
+      display: block;
+    }
+
+    /* ===== MAIN LAYOUT ===== */
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 40px 16px 80px;
+    }
+
+    /* ===== TABLE OF CONTENTS ===== */
+    .toc {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 32px;
+      margin: 32px 0 48px;
+    }
+    .toc-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--cyan-dark);
+      letter-spacing: 0.08em;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+    .toc ol {
+      padding-left: 20px;
+    }
+    .toc li {
+      margin-bottom: 8px;
+    }
+    .toc a {
+      color: var(--slate-mid);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.15s;
+    }
+    .toc a:hover { color: var(--cyan); }
+
+    /* ===== SECTIONS ===== */
+    .section {
+      margin-bottom: 64px;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--slate);
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 3px solid var(--cyan);
+      line-height: 1.4;
+    }
+
+    h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--slate);
+      margin: 28px 0 12px;
+      padding-left: 12px;
+      border-left: 4px solid var(--amber);
+    }
+
+    p {
+      margin-bottom: 16px;
+      line-height: 1.85;
+    }
+
+    ul, ol {
+      padding-left: 24px;
+      margin-bottom: 16px;
+    }
+    li { margin-bottom: 8px; line-height: 1.75; }
+
+    strong { color: var(--slate); font-weight: 700; }
+    em { color: var(--cyan-dark); font-style: normal; font-weight: 600; }
+
+    /* ===== ARTICLE IMAGES ===== */
+    .article-img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      margin: 24px 0;
+      display: block;
+    }
+    .img-caption {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--slate-light);
+      margin-top: -16px;
+      margin-bottom: 24px;
+    }
+
+    /* ===== INFO CARD ===== */
+    .info-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin: 24px 0;
+      border: 1px solid var(--border);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .info-card.highlight {
+      background: linear-gradient(135deg, #ecfeff 0%, #f0f9ff 100%);
+      border-color: var(--cyan);
+      border-left-width: 4px;
+    }
+    .info-card.warning {
+      background: #fffbeb;
+      border-color: var(--amber);
+      border-left-width: 4px;
+    }
+
+    /* ===== STEP LIST ===== */
+    .step-list {
+      list-style: none;
+      padding: 0;
+    }
+    .step-list li {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+    .step-num {
+      flex-shrink: 0;
+      width: 36px; height: 36px;
+      background: var(--cyan);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+    .step-body { flex: 1; }
+    .step-title { font-weight: 700; margin-bottom: 4px; font-size: 0.95rem; }
+    .step-desc { font-size: 0.9rem; color: var(--slate-mid); line-height: 1.7; }
+
+    /* ===== PROMPT BLOCK ===== */
+    .prompt-block {
+      background: var(--code-bg);
+      color: var(--code-text);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 20px 0;
+      font-size: 0.88rem;
+      line-height: 1.7;
+      position: relative;
+      overflow: hidden;
+    }
+    .prompt-block::before {
+      content: 'プロンプト例';
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--cyan);
+      margin-bottom: 10px;
+    }
+    .prompt-block .prompt-text {
+      font-family: 'Courier New', monospace;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+    .prompt-block .highlight-var {
+      color: #fbbf24;
+    }
+
+    /* ===== COMPARISON TABLE ===== */
+    .compare-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      margin: 24px 0;
+      font-size: 0.9rem;
+    }
+    .compare-table th {
+      background: var(--cyan-dark);
+      color: #fff;
+      padding: 14px 16px;
+      text-align: center;
+      font-weight: 700;
+    }
+    .compare-table th:first-child { text-align: left; }
+    .compare-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+      background: #fff;
+    }
+    .compare-table td:first-child { text-align: left; font-weight: 600; }
+    .compare-table tr:last-child td { border-bottom: none; }
+    .compare-table tr:nth-child(even) td { background: #f8fafc; }
+    .check { color: var(--green); font-size: 1.1rem; }
+    .cross { color: var(--slate-light); font-size: 1.1rem; }
+    .plan-price { font-weight: 800; color: var(--cyan-dark); font-size: 1rem; }
+
+    /* ===== ROADMAP ===== */
+    .roadmap {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .roadmap-day {
+      display: flex;
+      gap: 0;
+    }
+    .roadmap-left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 56px;
+      flex-shrink: 0;
+    }
+    .day-badge {
+      width: 48px; height: 48px;
+      background: linear-gradient(135deg, var(--cyan) 0%, var(--cyan-dark) 100%);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.8rem;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(8,145,178,0.3);
+    }
+    .roadmap-line {
+      width: 2px;
+      flex: 1;
+      background: linear-gradient(to bottom, var(--cyan), var(--border));
+      margin: 4px 0;
+      min-height: 32px;
+    }
+    .roadmap-day:last-child .roadmap-line { display: none; }
+    .roadmap-content {
+      flex: 1;
+      padding: 4px 0 32px 20px;
+    }
+    .roadmap-content h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--cyan-dark);
+      margin-bottom: 8px;
+    }
+    .roadmap-content ul { margin-bottom: 0; }
+
+    /* ===== FAQ ===== */
+    .faq-item {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      margin-bottom: 12px;
+      overflow: hidden;
+      background: #fff;
+    }
+    .faq-q {
+      padding: 16px 20px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      cursor: default;
+    }
+    .faq-q-icon {
+      width: 24px; height: 24px;
+      background: var(--cyan);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 800;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .faq-a {
+      padding: 0 20px 16px 56px;
+      font-size: 0.92rem;
+      color: var(--slate-mid);
+      line-height: 1.8;
+    }
+
+    /* ===== FAIL CARDS ===== */
+    .fail-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .fail-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 24px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .fail-num {
+      width: 40px; height: 40px;
+      background: #fee2e2;
+      color: var(--red);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .fail-body {}
+    .fail-title { font-weight: 700; margin-bottom: 6px; font-size: 0.95rem; }
+    .fail-solution { font-size: 0.88rem; color: var(--slate-mid); line-height: 1.75; }
+    .solution-badge {
+      display: inline-block;
+      background: #d1fae5;
+      color: var(--green);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 100px;
+      margin-right: 6px;
+    }
+
+    /* ===== USE CASES GRID ===== */
+    .usecase-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin: 20px 0;
+    }
+    .usecase-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+    }
+    .usecase-icon { font-size: 1.5rem; margin-bottom: 8px; display: block; }
+    .usecase-title { font-weight: 700; font-size: 0.9rem; margin-bottom: 4px; }
+    .usecase-example { font-size: 0.8rem; color: var(--slate-mid); line-height: 1.6; }
+
+    /* ===== AFFILIATE CTA ===== */
+    .affiliate-cta {
+      border-radius: 14px;
+      padding: 24px 28px;
+      margin: 36px 0;
+    }
+    .affiliate-cta.saas {
+      background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+      border: 1px solid #6ee7b7;
+      border-left: 4px solid var(--green);
+    }
+    .affiliate-cta.learning {
+      background: linear-gradient(135deg, #eff6ff, #dbeafe);
+      border: 1px solid #93c5fd;
+      border-left: 4px solid #3b82f6;
+    }
+    .affiliate-cta.general {
+      background: linear-gradient(135deg, #faf5ff, #ede9fe);
+      border: 1px solid #c4b5fd;
+      border-left: 4px solid #7c3aed;
+    }
+    .affiliate-cta-title {
+      font-weight: 800;
+      font-size: 1rem;
+      margin-bottom: 6px;
+      color: var(--slate);
+    }
+    .affiliate-cta-desc {
+      font-size: 0.88rem;
+      color: var(--slate-mid);
+      margin-bottom: 16px;
+      line-height: 1.7;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: var(--green);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 10px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .affiliate-cta.learning .cta-btn { background: #3b82f6; }
+    .affiliate-cta.general .cta-btn { background: #7c3aed; }
+    .cta-btn:hover { opacity: 0.9; }
+
+    /* ===== HIGHLIGHT BOX ===== */
+    .highlight-box {
+      background: linear-gradient(135deg, #fffbeb, #fef3c7);
+      border: 1px solid #fcd34d;
+      border-left: 4px solid var(--amber);
+      border-radius: 10px;
+      padding: 18px 22px;
+      margin: 24px 0;
+      font-size: 0.92rem;
+    }
+    .highlight-box strong { color: var(--amber-dark); }
+
+    /* ===== CONCLUSION ===== */
+    .conclusion {
+      background: linear-gradient(135deg, var(--cyan-dark), #164e63);
+      color: #fff;
+      border-radius: 16px;
+      padding: 40px 36px;
+      margin-top: 48px;
+      text-align: center;
+    }
+    .conclusion h2 {
+      color: #fff;
+      border-bottom-color: rgba(255,255,255,0.3);
+      margin-bottom: 16px;
+    }
+    .conclusion p { color: rgba(255,255,255,0.85); margin-bottom: 12px; }
+
+    /* ===== SITE FOOTER ===== */
+    .site-footer {
+      background: var(--slate);
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 0.85rem;
+    }
+    .site-footer a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .site-footer a:hover { color: #fff; }
+    .site-footer p { margin-top: 8px; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 600px) {
+      h2 { font-size: 1.25rem; }
+      .hero { padding: 40px 16px 70px; }
+      .hero h1 { font-size: 1.4rem; }
+      .toc { padding: 20px; }
+      .info-card { padding: 18px; }
+      .compare-table th, .compare-table td { padding: 10px 10px; font-size: 0.82rem; }
+      .usecase-grid { grid-template-columns: 1fr; }
+      .conclusion { padding: 28px 20px; }
+      .roadmap-content { padding-bottom: 20px; }
+    }
+  </style>
+</head>
+<body>
+<nav data-nav="breadcrumb" aria-label="パンくずリスト" style="max-width:780px;margin:0 auto;padding:12px 24px;font-size:13px;color:#7b80a0;display:flex;gap:8px;flex-wrap:wrap;"><a href="/" style="color:#9d97ff;text-decoration:none;">トップ</a><span>›</span><a href="/category/skill-up/" style="color:#9d97ff;text-decoration:none;">スキルアップ</a><span>›</span><span style="color:#dde1f0;">ChatGPT 使い方 完全ガイド【2026年最新】初心者が今日から使える基本操作と実践テクニック</span></nav>
+
+<!-- SITE HEADER -->
+<header class="site-header">
+  <a href="https://www.shift-breeze.com" class="site-title">ShiftBreeze</a>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">2026年4月 最新版</div>
+  <h1>ChatGPT 使い方 完全ガイド<br>初心者が今日から使える<br>基本操作と実践テクニック</h1>
+  <p class="hero-lead">「登録したけど何をすればいい？」「うまく使えない」と感じているあなたへ。コピペOKのプロンプト集と3日間ロードマップで、ChatGPTを自分のものにしよう。</p>
+  <p class="hero-meta">更新日：2026年4月25日 ｜ 約10分で読めます</p>
+</section>
+
+<!-- EYECATCH -->
+<div class="eyecatch-wrap">
+  <img src="/images/articles/cc_20260425_000002/eyecatch.png" alt="ChatGPT使い方初心者ガイド2026" loading="lazy">
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="container">
+
+  <!-- リード文 -->
+  <div class="info-card highlight" style="margin-top: 40px;">
+    <p style="margin-bottom: 0;"><strong>この記事でわかること</strong><br>
+    ✅ ChatGPTの登録方法（5分で完了）<br>
+    ✅ 初心者がすぐ使えるプロンプトテンプレート集<br>
+    ✅ 仕事・日常での具体的な活用シーン30選<br>
+    ✅ 無料版と有料版、どちらを選ぶべきか<br>
+    ✅ 初心者がよくやらかす失敗と対策<br>
+    ✅ 3日間で「ChatGPT使いこなし習慣」を作るロードマップ</p>
+  </div>
+
+  <!-- 目次 -->
+  <nav class="toc">
+    <div class="toc-title">目次</div>
+    <ol>
+      <li><a href="#what-is">ChatGPTとは？2分でわかる基本</a></li>
+      <li><a href="#signup">アカウント登録の手順【無料で5分】</a></li>
+      <li><a href="#first-step">最初の一歩：ChatGPTとの会話を始める</a></li>
+      <li><a href="#prompt">プロンプトのコツ｜コピペOKテンプレート集</a></li>
+      <li><a href="#usecases">ChatGPTでできること30選</a></li>
+      <li><a href="#pricing">無料版 vs 有料版の選び方</a></li>
+      <li><a href="#mistakes">初心者がよくやる失敗3パターンと対策</a></li>
+      <li><a href="#roadmap">3日間チャレンジ｜使いこなし習慣ロードマップ</a></li>
+      <li><a href="#faq">よくある質問（FAQ）</a></li>
+    </ol>
+  </nav>
+
+  <!-- Section 1: What is ChatGPT -->
+  <section class="section" id="what-is">
+    <h2>1. ChatGPTとは？2分でわかる基本</h2>
+    <p>ChatGPT（チャットジーピーティー）は、アメリカのOpenAI社が開発した<strong>対話型AI（人工知能）サービス</strong>です。テキストを入力（「プロンプト」と呼ぶ）するだけで、文章作成・翻訳・コード生成・アイデア出しなど、幅広い作業を手伝ってくれます。</p>
+    <p>2022年11月のリリース以来、わずか5日でユーザー数100万人を突破するという前例のないスピードで普及し、2026年現在では<strong>世界で5億人以上</strong>が利用しています。</p>
+
+    <div class="info-card">
+      <h3 style="margin-top: 0; border-left: none; padding-left: 0; font-size: 1rem;">💡 他のAIとどう違うの？</h3>
+      <ul>
+        <li><strong>Google Gemini</strong>：Googleサービスとの連携が強み</li>
+        <li><strong>Claude（Anthropic社）</strong>：長い文書の処理・安全性に優れる</li>
+        <li><strong>ChatGPT</strong>：汎用性・日本語の自然さ・プラグイン拡張が強み</li>
+      </ul>
+      <p style="margin-bottom: 0; font-size: 0.9rem; color: var(--slate-mid);">初心者には、UIがシンプルで日本語にも強いChatGPTが入口として最適です。</p>
+    </div>
+
+    <p>2025年にはGPT-5が正式リリースされ、より自然な対話・高い推論能力・長期記憶機能が加わりました。無料版でも2026年現在、GPT-5シリーズの一部モデルを利用できます。</p>
+  </section>
+
+  <!-- Section 2: Signup -->
+  <section class="section" id="signup">
+    <h2>2. アカウント登録の手順【無料で5分】</h2>
+    <p>ChatGPTは<strong>無料で始められます</strong>。クレジットカード不要です。以下の手順で5分あれば登録完了です。</p>
+
+    <ul class="step-list">
+      <li>
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">chatgpt.comにアクセス</div>
+          <div class="step-desc">ブラウザで「chatgpt.com」を開く。スマホのアプリ（iOS/Android）も無料です。</div>
+        </div>
+      </li>
+      <li>
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">「サインアップ」をクリック</div>
+          <div class="step-desc">画面中央の「サインアップ」ボタンを押す。</div>
+        </div>
+      </li>
+      <li>
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">登録方法を選ぶ</div>
+          <div class="step-desc">Googleアカウント・Microsoftアカウント・Appleアカウント、またはメールアドレスで登録できます。Googleアカウント連携が最も手間なしです。</div>
+        </div>
+      </li>
+      <li>
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <div class="step-title">生年月日・利用規約を確認</div>
+          <div class="step-desc">氏名・生年月日を入力して利用規約に同意します。18歳以上が対象です。</div>
+        </div>
+      </li>
+      <li>
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <div class="step-title">完了！チャット画面が開く</div>
+          <div class="step-desc">これだけです。すぐに使い始められます。</div>
+        </div>
+      </li>
+    </ul>
+
+    <img class="article-img" src="/images/articles/cc_20260425_000002/01-registration.png" alt="ChatGPT登録手順イメージ" loading="lazy">
+    <p class="img-caption">▲ 登録はGoogleアカウント連携が最速。メール確認なしですぐに使えます</p>
+
+    <div class="info-card warning">
+      <strong>⚠️ スマホアプリの注意点</strong><br>
+      App StoreやGoogle Playで「ChatGPT」を検索すると、OpenAI公式以外の類似アプリが表示されることがあります。<strong>開発元が「OpenAI」であることを必ず確認</strong>してからインストールしてください。
+    </div>
+  </section>
+
+  <!-- Section 3: First Step -->
+  <section class="section" id="first-step">
+    <h2>3. 最初の一歩：ChatGPTとの会話を始める</h2>
+    <p>ログイン後、画面下部にテキスト入力欄があります。ここに<strong>「メッセージ」を書いて送信</strong>するだけです。難しい操作は一切ありません。</p>
+
+    <h3>最初に試してほしい3つの質問</h3>
+    <p>まずは気軽に話しかけてみましょう。正解はありません。</p>
+
+    <div class="prompt-block">
+      <span class="prompt-text">今日の夕食のメニューを5つ提案してください。
+食材は冷蔵庫にある鶏肉、玉ねぎ、じゃがいもです。
+調理時間は30分以内で、難しい料理は避けてください。</span>
+    </div>
+
+    <div class="prompt-block">
+      <span class="prompt-text">「おはようございます。昨日ご依頼いただいた件について確認させてください」
+という書き出しで、上司へのビジネスメールを書いてください。
+丁寧すぎず、簡潔にお願いします。</span>
+    </div>
+
+    <div class="prompt-block">
+      <span class="prompt-text">私はChatGPTを使い始めたばかりの初心者です。
+まず何から始めたらいいか、3ステップで教えてください。</span>
+    </div>
+
+    <div class="info-card highlight">
+      <strong>🔑 ポイント：AIとの会話は「ブラウザの検索」とは違います</strong><br>
+      <p style="margin: 8px 0 0;">検索エンジンにはキーワードを入れますが、ChatGPTには<strong>「人に頼むように」自然な文で話しかける</strong>のがコツです。「天気　東京」ではなく「今週東京で傘が必要な日はいつですか？」と聞く感覚です。</p>
+    </div>
+  </section>
+
+  <!-- Section 4: Prompt Tips -->
+  <section class="section" id="prompt">
+    <h2>4. プロンプトのコツ｜コピペOKテンプレート集</h2>
+    <p>ChatGPTが上手く答えてくれないときは、ほぼ100%「プロンプト（指示文）」の書き方が原因です。次の5つのコツを覚えるだけで、回答の質が劇的に変わります。</p>
+
+    <img class="article-img" src="/images/articles/cc_20260425_000002/02-prompt-tips.png" alt="プロンプトのコツ図解" loading="lazy">
+    <p class="img-caption">▲ 良いプロンプトの5要素。全部入れなくてもOK、使える要素を組み合わせる</p>
+
+    <h3>コツ① 役割を与える</h3>
+    <p>「〇〇の専門家として回答してください」と役割を設定すると、その分野に最適化した回答が返ってきます。</p>
+    <div class="prompt-block">
+      <span class="prompt-text"><span class="highlight-var">【役割】</span>あなたは10年以上の経験を持つコピーライターです。
+<span class="highlight-var">【依頼】</span>以下の商品説明文を、読者が思わずクリックしたくなる
+キャッチコピー（30文字以内）に書き直してください。
+
+【元の文章】
+「当社のコーヒーは丁寧に焙煎した高品質な豆を使用しています」</span>
+    </div>
+
+    <h3>コツ② 条件を具体的に指定する</h3>
+    <p>「文字数」「形式」「対象読者」「トーン」を指定するほど、ズレが少なくなります。</p>
+    <div class="prompt-block">
+      <span class="prompt-text">以下の条件で、転職活動の自己PR文を書いてください。
+・<span class="highlight-var">文字数：300文字以内</span>
+・<span class="highlight-var">対象：IT企業の中途採用</span>
+・<span class="highlight-var">トーン：自信を持ちつつ謙虚な表現</span>
+・<span class="highlight-var">含めてほしい内容：5年間の営業経験、チームマネジメント経験</span></span>
+    </div>
+
+    <h3>コツ③ 出力形式を指定する</h3>
+    <p>「箇条書きで」「表で」「ステップ形式で」と指定すると、すぐ使える形で返ってきます。</p>
+    <div class="prompt-block">
+      <span class="prompt-text">週1回の社内ミーティングを効率化する方法を
+<span class="highlight-var">「① 〜する、理由：〜」の形式で5つ</span>教えてください。</span>
+    </div>
+
+    <h3>コツ④ 例を見せる（Few-shot）</h3>
+    <p>「こういうトーンで書いてほしい」という例文を一緒に渡すと、再現性が上がります。</p>
+    <div class="prompt-block">
+      <span class="prompt-text">以下のような<span class="highlight-var">口語的でフレンドリーなトーン</span>で
+Instagram投稿文を書いてください。
+
+【例文】
+「今日のランチ、まじで最高だった🍜
+近所に神ラーメン店あったなんて、知らなかった！
+みなさんもぜひ行ってみて」
+
+【依頼】：新しいカフェに行った体験を投稿したい</span>
+    </div>
+
+    <h3>コツ⑤ 「続けて」「修正して」でブラッシュアップ</h3>
+    <p>最初の回答に満足できなくても大丈夫。同じ会話の中で「もっと簡潔にして」「3番目の案を詳しく」と追加指示するだけで改善できます。1回のプロンプトで完璧を求めなくてOKです。</p>
+
+    <div class="highlight-box">
+      <strong>💡 コツ：「NG例 → OK例」で比較しよう</strong><br>
+      <table style="width:100%; margin-top: 10px; font-size: 0.88rem; border-collapse: collapse;">
+        <tr>
+          <th style="text-align: left; padding: 6px 10px; background: #fde68a; border-radius: 4px 4px 0 0;">❌ NG</th>
+          <th style="text-align: left; padding: 6px 10px; background: #d1fae5; border-radius: 4px 4px 0 0;">✅ OK</th>
+        </tr>
+        <tr>
+          <td style="padding: 8px 10px; vertical-align: top; border-top: 1px solid #e5e7eb;">「メール書いて」</td>
+          <td style="padding: 8px 10px; vertical-align: top; border-top: 1px solid #e5e7eb;">「取引先への納期延長のお詫びメール。100文字以内で丁寧に」</td>
+        </tr>
+        <tr>
+          <td style="padding: 8px 10px; vertical-align: top; border-top: 1px solid #e5e7eb;">「副業を教えて」</td>
+          <td style="padding: 8px 10px; vertical-align: top; border-top: 1px solid #e5e7eb;">「会社員が平日夜2時間でできる副業を5つ、初期費用と月収の目安とともに箇条書きで」</td>
+        </tr>
+        <tr>
+          <td style="padding: 8px 10px; vertical-align: top; border-top: 1px solid #e5e7eb;">「レポート作って」</td>
+          <td style="padding: 8px 10px; vertical-align: top; border-top: 1px solid #e5e7eb;">「AIの業務活用について、A4一枚の社内向けレポート。見出し3つ、各200文字で」</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Affiliate 1: learning -->
+    <div class="affiliate-cta learning">
+      <div class="affiliate-cta-title">📚 ChatGPTを体系的に学ぶなら</div>
+      <div class="affiliate-cta-desc">プロンプトエンジニアリングから業務自動化まで、AIスキルを最短で習得したい方向けの学習サービスが充実しています。</div>
+      <!-- AFFILIATE:category=learning:label=AIスキルを学ぶ -->
+    </div>
+  </section>
+
+  <!-- Section 5: Use Cases -->
+  <section class="section" id="usecases">
+    <h2>5. ChatGPTでできること30選</h2>
+    <p>「ChatGPTって結局何ができるの？」を一覧でまとめました。仕事・日常・学習ごとに整理しています。</p>
+
+    <img class="article-img" src="/images/articles/cc_20260425_000002/03-usecases.png" alt="ChatGPT活用例イラスト" loading="lazy">
+    <p class="img-caption">▲ ChatGPTが得意なタスク一覧</p>
+
+    <h3>💼 仕事で使える（15選）</h3>
+    <div class="usecase-grid">
+      <div class="usecase-card">
+        <span class="usecase-icon">✉️</span>
+        <div class="usecase-title">ビジネスメール作成</div>
+        <div class="usecase-example">お詫び・御礼・依頼・断りメールを数秒で</div>
+      </div>
+      <div class="usecase-card">
+        <span class="usecase-icon">📄</span>
+        <div class="usecase-title">資料・企画書の素案</div>
+        <div class="usecase-example">構成案を先に作って、内容を肉付けする</div>
+      </div>
+      <div class="usecase-card">
+        <span class="usecase-icon">📝</span>
+        <div class="usecase-title">会議の議事録整理</div>
+        <div class="usecase-example">メモを貼り付けて「整理して」と頼むだけ</div>
+      </div>
+      <div class="usecase-card">
+        <span class="usecase-icon">🌐</span>
+        <div class="usecase-title">翻訳・言い換え</div>
+        <div class="usecase-example">英文メールの翻訳、難しい言葉を平易に</div>
+      </div>
+      <div class="usecase-card">
+        <span class="usecase-icon">🔍</span>
+        <div class="usecase-title">リサーチ・情報整理</div>
+        <div class="usecase-example">テーマを渡すと概要をまとめてくれる</div>
+      </div>
+      <div class="usecase-card">
+        <span class="usecase-icon">📊</span>
+        <div class="usecase-title">Excel関数の相談</div>
+        <div class="usecase-example">「こういう計算をしたい」と伝えると式を教えてくれる</div>
+      </div>
+    </div>
+    <ul>
+      <li>SNS投稿・ブログ記事の下書き</li>
+      <li>プレゼンスライドの構成案</li>
+      <li>マーケティングのキャッチコピー案出し</li>
+      <li>コードの作成・バグ修正（プログラミング）</li>
+      <li>採用面接の質問リスト作成</li>
+      <li>競合調査の切り口を考える</li>
+      <li>議事録の要点サマリー</li>
+      <li>クレーム対応文の作成</li>
+      <li>業務マニュアルの整理・リライト</li>
+    </ul>
+
+    <h3>🏠 日常生活で使える（10選）</h3>
+    <ul>
+      <li>冷蔵庫の食材でレシピ提案</li>
+      <li>旅行プランの作成（ホテル・観光地候補）</li>
+      <li>プレゼント選びのアイデア</li>
+      <li>ダイエット・食事管理プランの相談</li>
+      <li>子どもの宿題サポート（一緒に考える）</li>
+      <li>健康・医療情報の初期調査（受診前の予備知識）</li>
+      <li>家計管理のアドバイス</li>
+      <li>映画・本のレコメンド</li>
+      <li>悩み相談・壁打ち（整理して考えるのに便利）</li>
+      <li>語学学習（英会話の練習・文法チェック）</li>
+    </ul>
+
+    <h3>📚 学習・スキルアップで使える（5選）</h3>
+    <ul>
+      <li>資格試験の問題を出してもらう</li>
+      <li>難しい本・論文の要約</li>
+      <li>プログラミング学習のメンター代わりに</li>
+      <li>英語のスピーキング・ライティング練習</li>
+      <li>専門用語を初心者向けに説明してもらう</li>
+    </ul>
+  </section>
+
+  <!-- Section 6: Pricing -->
+  <section class="section" id="pricing">
+    <h2>6. 無料版 vs 有料版の選び方</h2>
+    <p>ChatGPTは無料でもかなり使えますが、<strong>使い続けるとすぐ制限に当たる</strong>のが現実です。2026年時点のプラン比較をまとめました。</p>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>機能</th>
+          <th>無料</th>
+          <th>Go<br>¥1,500/月</th>
+          <th>Plus<br>¥3,000/月</th>
+          <th>Pro<br>¥30,000/月</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>利用回数</td>
+          <td>5時間に10回</td>
+          <td>3時間に80回</td>
+          <td>3時間に160回</td>
+          <td>無制限</td>
+        </tr>
+        <tr>
+          <td>利用モデル</td>
+          <td>GPT-5 mini系</td>
+          <td>GPT-5系</td>
+          <td>GPT-5系</td>
+          <td>全モデル</td>
+        </tr>
+        <tr>
+          <td>画像生成</td>
+          <td><span class="check">△制限付き</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓ 優先</span></td>
+        </tr>
+        <tr>
+          <td>ファイルのアップロード</td>
+          <td><span class="check">△</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td>音声会話</td>
+          <td><span class="cross">–</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td>広告表示</td>
+          <td>あり</td>
+          <td>なし</td>
+          <td>なし</td>
+          <td>なし</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>どのプランを選ぶべき？</h3>
+    <div class="info-card">
+      <ul>
+        <li><strong>まずは無料で試す</strong>：初めての方は必ず無料から。どんな質問ができるか感覚をつかむ</li>
+        <li><strong>Goプラン（¥1,500/月）</strong>：毎日使いたいが回数制限が気になってきた方に</li>
+        <li><strong>Plusプラン（¥3,000/月）</strong>：仕事でガンガン使いたい・画像生成も活用したい方に</li>
+        <li><strong>Proプラン（¥30,000/月）</strong>：開発者や業務で大量に使う方向け。個人利用には不要なケースが多い</li>
+      </ul>
+    </div>
+
+    <!-- Affiliate 2: saas -->
+    <div class="affiliate-cta saas">
+      <div class="affiliate-cta-title">🚀 ChatGPTをもっと活用するAIツール</div>
+      <div class="affiliate-cta-desc">ChatGPTと組み合わせると業務効率が飛躍的に上がるSaaSツールが続々登場しています。使い方に合わせた最適なサービスを見つけよう。</div>
+      <!-- AFFILIATE:category=saas:label=AIツールを探す -->
+    </div>
+  </section>
+
+  <!-- Section 7: Mistakes -->
+  <section class="section" id="mistakes">
+    <h2>7. 初心者がよくやる失敗3パターンと対策</h2>
+    <p>「ChatGPTって使いにくい」と感じる人の大半は、以下の3つのどれかにはまっています。知っておくだけで防げます。</p>
+
+    <div class="fail-grid">
+      <div class="fail-card">
+        <div class="fail-num">1</div>
+        <div class="fail-body">
+          <div class="fail-title">❌ 曖昧な指示で「使えない」と判断する</div>
+          <div class="fail-solution">
+            「メール書いて」「副業教えて」など、曖昧な指示は曖昧な回答しか返ってきません。<br>
+            <span class="solution-badge">解決策</span>対象者・文字数・目的・トーンを明示する。コツ①〜④を使う。
+          </div>
+        </div>
+      </div>
+      <div class="fail-card">
+        <div class="fail-num">2</div>
+        <div class="fail-body">
+          <div class="fail-title">❌ 一発目の回答で完成品を期待する</div>
+          <div class="fail-solution">
+            ChatGPTは「最初の70%」を出すツールです。「もっと短く」「3番だけ詳しく」「違うトーンで」と対話しながら仕上げていくのが正しい使い方。<br>
+            <span class="solution-badge">解決策</span>同じ会話内で追加指示を重ねる。返答の改善を繰り返す。
+          </div>
+        </div>
+      </div>
+      <div class="fail-card">
+        <div class="fail-num">3</div>
+        <div class="fail-body">
+          <div class="fail-title">❌ 回答をそのまま使って問題が起きる</div>
+          <div class="fail-solution">
+            ChatGPTは「もっともらしい文章」を生成しますが、事実と異なる情報（ハルシネーション）が含まれることがあります。特に数値・統計・法律情報は要注意。<br>
+            <span class="solution-badge">解決策</span>重要な情報は一次ソース（公式サイト・政府機関）で必ず確認する。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-card warning" style="margin-top: 24px;">
+      <strong>⚠️ 絶対に入力してはいけない情報</strong><br>
+      <ul style="margin-top: 8px; margin-bottom: 0;">
+        <li>個人を特定できる情報（氏名・住所・電話番号・マイナンバーなど）</li>
+        <li>会社の機密情報・未公開情報</li>
+        <li>顧客の個人情報</li>
+        <li>クレジットカード番号・パスワード</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Section 8: Roadmap -->
+  <section class="section" id="roadmap">
+    <h2>8. 3日間チャレンジ｜使いこなし習慣ロードマップ</h2>
+    <p>「登録したけど結局使わなかった」を防ぐための<strong>3日間プログラム</strong>です。毎日15〜30分取り組むだけで、ChatGPTが「当たり前のツール」になります。</p>
+
+    <div class="roadmap">
+      <div class="roadmap-day">
+        <div class="roadmap-left">
+          <div class="day-badge">Day 1</div>
+          <div class="roadmap-line"></div>
+        </div>
+        <div class="roadmap-content">
+          <h4>「初めての10問」を試す日</h4>
+          <ul>
+            <li>好きなテーマで自由に10回話しかける</li>
+            <li>料理・旅行・仕事のどれかで使ってみる</li>
+            <li>「もっと詳しく」「違う案で」と追加指示を1回やってみる</li>
+            <li>★ゴール：ChatGPTとの会話に慣れる・抵抗をなくす</li>
+          </ul>
+        </div>
+      </div>
+      <div class="roadmap-day">
+        <div class="roadmap-left">
+          <div class="day-badge">Day 2</div>
+          <div class="roadmap-line"></div>
+        </div>
+        <div class="roadmap-content">
+          <h4>「仕事で1つ使う」日</h4>
+          <ul>
+            <li>実際の業務でChatGPTを使う（メール・資料・調査）</li>
+            <li>コツ①〜④のうち最低1つを意識して使う</li>
+            <li>「役割指定」を試してみる</li>
+            <li>★ゴール：仕事で「時短できた！」という感覚を得る</li>
+          </ul>
+        </div>
+      </div>
+      <div class="roadmap-day">
+        <div class="roadmap-left">
+          <div class="day-badge">Day 3</div>
+          <div class="roadmap-line"></div>
+        </div>
+        <div class="roadmap-content">
+          <h4>「自分専用テンプレート」を作る日</h4>
+          <ul>
+            <li>よく使う場面のプロンプトを3つメモしておく</li>
+            <li>「カスタム指示」設定で自分の仕事・好みを登録する</li>
+            <li>明日以降の使い方ルーティンを決める</li>
+            <li>★ゴール：「自分専用のChatGPT」にする第一歩を踏む</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-card highlight" style="margin-top: 24px;">
+      <strong>📌 カスタム指示の設定方法</strong><br>
+      <p style="margin: 8px 0 0; font-size: 0.9rem;">画面右上のアカウントアイコン → 「カスタム指示」から設定できます。<br>
+      「私は30代の会社員で、ビジネス文書を多く扱います。回答はです・ます調で、簡潔にお願いします」のように自分のプロフィールと好みを登録しておくと、毎回説明しなくてもOKになります。</p>
+    </div>
+
+    <!-- Affiliate 3: general -->
+    <div class="affiliate-cta general">
+      <div class="affiliate-cta-title">🎯 AIで仕事を変えたい方へ</div>
+      <div class="affiliate-cta-desc">ChatGPTを習得した次のステップ——AIを活用した副業・フリーランスへの転換を考えているなら、まず情報収集から始めてみましょう。</div>
+      <!-- AFFILIATE:category=general:label=AI副業情報を見る -->
+    </div>
+  </section>
+
+  <!-- Section 9: FAQ -->
+  <section class="section" id="faq">
+    <h2>9. よくある質問（FAQ）</h2>
+
+    <div class="faq-item">
+      <div class="faq-q">
+        <span class="faq-q-icon">Q</span>
+        <span>ChatGPTは日本語で使えますか？</span>
+      </div>
+      <div class="faq-a">はい、完全に日本語で使えます。プロンプトを日本語で書けば日本語で回答します。ChatGPTは100以上の言語に対応しており、日本語の精度も非常に高いです。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">
+        <span class="faq-q-icon">Q</span>
+        <span>入力した内容は他人に見られますか？</span>
+      </div>
+      <div class="faq-a">OpenAIのスタッフがサービス改善のために会話を確認する場合があります（設定でオフにできます）。他のユーザーには見えません。ただし、機密情報・個人情報は入力しないことを強くお勧めします。設定 → データコントロール → 「モデルトレーニングへのデータ利用」をオフにすると、学習への使用を防げます。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">
+        <span class="faq-q-icon">Q</span>
+        <span>無料版と有料版、最初はどちらがいいですか？</span>
+      </div>
+      <div class="faq-a">必ず<strong>無料版から始めてください</strong>。1〜2週間使ってみて「もっと使いたい」「制限が気になる」と感じたらGoプラン（月1,500円）に切り替えるのがベストです。いきなり上位プランにする必要はありません。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">
+        <span class="faq-q-icon">Q</span>
+        <span>ChatGPTが言っていることが間違っていた場合は？</span>
+      </div>
+      <div class="faq-a">同じ会話で「それは間違いです。正しくは〇〇です」と指摘すると訂正してくれます。重要な情報は必ず公式ソースで確認する習慣をつけましょう。特に医療・法律・金融関連の情報は、専門家への相談を優先してください。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">
+        <span class="faq-q-icon">Q</span>
+        <span>スマホでも使えますか？</span>
+      </div>
+      <div class="faq-a">はい。iOS・Android向け公式アプリがあります（無料）。テキストチャットだけでなく、音声での会話もできます（有料プランの場合）。外出先でもすぐに使えて便利です。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">
+        <span class="faq-q-icon">Q</span>
+        <span>ChatGPTを使えば仕事が全部自動化されますか？</span>
+      </div>
+      <div class="faq-a">すべての仕事を自動化するのは現実的ではありません。ただし、文書作成・情報整理・アイデア出しなど<strong>「考える補助」「作成の補助」には非常に有効</strong>です。人間の判断・確認・修正と組み合わせることで、作業効率を大幅に上げることができます。</div>
+    </div>
+  </section>
+
+  <!-- CONCLUSION -->
+  <section class="conclusion">
+    <h2>まとめ：まず「今日1回」使うことが最大のコツ</h2>
+    <p>ChatGPTを使いこなすために必要なのは、高いITスキルでも特別な知識でもありません。<strong>「気軽に話しかけて、ダメなら修正する」サイクルを繰り返す</strong>ことだけです。</p>
+    <p>完璧なプロンプトを目指さなくていい。最初は「30点の指示」でOK。対話しながら磨いていく。</p>
+    <p>この記事のプロンプトをコピペして、今日の仕事や日常生活で1つ試してみてください。<br>それが、AIと共に働く第一歩です。</p>
+  </section>
+
+</div><!-- /container -->
+
+<!-- SITE FOOTER -->
+<footer class="site-footer">
+  <a href="https://www.shift-breeze.com">shift-breeze.com</a>
+  <p>&copy; ShiftBreeze</p>
+</footer>
+
+<section data-nav="related" data-task-id="cc_20260425_000002" data-category="skill-up" style="max-width:780px;margin:48px auto 32px;padding:0 24px;"><h2 style="font-size:20px;font-weight:700;color:#fff;margin:0 0 16px;padding:0;border:none;background:none;">関連記事</h2><div data-related-list style="display:grid;grid-template-columns:1fr;gap:12px;"><div style="color:#7b80a0;font-size:14px;">読み込み中...</div></div><script>(async function(){try{const res=await fetch("/articles/index.json");const data=await res.json();const sec=document.querySelector('[data-nav="related"]');const list=sec.querySelector("[data-related-list]");const me=sec.getAttribute("data-task-id");const cat=sec.getAttribute("data-category");const rel=(data.articles||[]).filter(a=>a.category===cat&&a.task_id!==me).slice(0,4);if(rel.length===0){list.innerHTML='<div style="color:#7b80a0;font-size:14px;">関連記事はまだありません。</div>';return;}list.innerHTML=rel.map(a=>`<a href="${a.url}" style="display:flex;gap:12px;padding:12px;background:#13161f;border:1px solid #1e2133;border-radius:10px;text-decoration:none;color:#dde1f0;">${a.eyecatch?`<img src="${a.eyecatch}" alt="" loading="lazy" style="width:96px;height:64px;object-fit:cover;border-radius:6px;flex-shrink:0;">`:""}<div style="font-size:14px;line-height:1.5;">${a.title}</div></a>`).join("");}catch(e){/* ignore */}})();</script></section>
+</body>
+</html>
