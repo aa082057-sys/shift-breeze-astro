@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>【2026年版】副業の確定申告やり方完全ガイド｜スマホe-Tax手順から住民税バレ対策まで</title>
+  <meta name="description" content="副業の確定申告のやり方を2026年最新版で完全解説。いくらから必要か・スマホe-Taxの手順・経費の書き方・会社にバレない住民税対策まで、会社員の初心者でも迷わず申告できるステップバイステップガイド。">
+  <style>
+    /* ========== リセット・ベース ========== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0f2547;
+      --navy-mid: #1a3a6b;
+      --blue: #2563eb;
+      --blue-light: #eff6ff;
+      --gold: #d97706;
+      --gold-light: #fffbeb;
+      --green: #059669;
+      --green-light: #ecfdf5;
+      --red: #dc2626;
+      --red-light: #fef2f2;
+      --gray-dark: #1e293b;
+      --gray: #475569;
+      --gray-mid: #94a3b8;
+      --gray-light: #f1f5f9;
+      --white: #ffffff;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+      --shadow: 0 4px 16px rgba(0,0,0,0.10);
+      --shadow-lg: 0 8px 32px rgba(0,0,0,0.13);
+      --radius: 12px;
+      --radius-sm: 6px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic', sans-serif;
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--gray-dark);
+      background: #f8fafc;
+    }
+
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    img { max-width: 100%; height: auto; display: block; }
+
+    /* ========== サイトヘッダー ========== */
+    .site-header {
+      background: var(--navy);
+      padding: 0 24px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow);
+    }
+    .site-header-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      height: 52px;
+    }
+    .site-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: 0.05em;
+      text-decoration: none;
+    }
+    .site-title:hover { opacity: 0.85; text-decoration: none; }
+    .site-title span { color: #60a5fa; }
+
+    /* ========== Hero ========== */
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 60%, #1e4d8c 100%);
+      color: var(--white);
+      padding: 56px 24px 48px;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--white);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      border-radius: 20px;
+      letter-spacing: 0.08em;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: clamp(1.5rem, 4vw, 2.4rem);
+      font-weight: 900;
+      line-height: 1.4;
+      margin-bottom: 18px;
+      letter-spacing: -0.01em;
+    }
+    .hero h1 .highlight { color: #fbbf24; }
+    .hero-desc {
+      font-size: 1rem;
+      color: #bfdbfe;
+      max-width: 620px;
+      margin: 0 auto 28px;
+      line-height: 1.7;
+    }
+    .hero-meta {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .hero-meta-item {
+      font-size: 0.8rem;
+      color: #93c5fd;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .hero-eyecatch {
+      max-width: 700px;
+      margin: 32px auto 0;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+    .hero-eyecatch img { width: 100%; }
+
+    /* ========== メインレイアウト ========== */
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+    .main-content {
+      padding: 40px 0 60px;
+    }
+
+    /* ========== 目次 ========== */
+    .toc {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--blue);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      margin: 0 0 40px;
+      box-shadow: var(--shadow-sm);
+    }
+    .toc-title {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .toc-list { list-style: none; counter-reset: toc; }
+    .toc-list li {
+      counter-increment: toc;
+      padding: 4px 0;
+      font-size: 0.9rem;
+    }
+    .toc-list li::before {
+      content: counter(toc) ". ";
+      font-weight: 700;
+      color: var(--blue);
+    }
+    .toc-list a { color: var(--gray-dark); }
+    .toc-list a:hover { color: var(--blue); }
+
+    /* ========== セクション共通 ========== */
+    .section { margin-bottom: 52px; }
+
+    h2 {
+      font-size: clamp(1.25rem, 3vw, 1.6rem);
+      font-weight: 900;
+      color: var(--navy);
+      border-left: 5px solid var(--blue);
+      padding: 8px 0 8px 16px;
+      margin-bottom: 24px;
+      line-height: 1.4;
+    }
+    h3 {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--navy-mid);
+      margin: 28px 0 14px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid var(--blue-light);
+    }
+    h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--gray-dark);
+      margin: 20px 0 10px;
+    }
+    p { margin-bottom: 16px; }
+    ul, ol {
+      padding-left: 1.5em;
+      margin-bottom: 16px;
+    }
+    li { margin-bottom: 6px; }
+    strong { color: var(--navy); font-weight: 700; }
+
+    /* ========== カード系コンポーネント ========== */
+    .card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border);
+      margin-bottom: 20px;
+    }
+
+    /* ========== 重要ボックス ========== */
+    .box-key {
+      background: var(--blue-light);
+      border: 1px solid #bfdbfe;
+      border-left: 4px solid var(--blue);
+      border-radius: var(--radius-sm);
+      padding: 18px 20px;
+      margin: 20px 0;
+      font-size: 0.95rem;
+    }
+    .box-key .box-label {
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--blue);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .box-warning {
+      background: var(--red-light);
+      border: 1px solid #fecaca;
+      border-left: 4px solid var(--red);
+      border-radius: var(--radius-sm);
+      padding: 18px 20px;
+      margin: 20px 0;
+      font-size: 0.95rem;
+    }
+    .box-warning .box-label {
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--red);
+      letter-spacing: 0.1em;
+      margin-bottom: 6px;
+    }
+    .box-success {
+      background: var(--green-light);
+      border: 1px solid #a7f3d0;
+      border-left: 4px solid var(--green);
+      border-radius: var(--radius-sm);
+      padding: 18px 20px;
+      margin: 20px 0;
+      font-size: 0.95rem;
+    }
+    .box-success .box-label {
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--green);
+      letter-spacing: 0.1em;
+      margin-bottom: 6px;
+    }
+    .box-gold {
+      background: var(--gold-light);
+      border: 1px solid #fde68a;
+      border-left: 4px solid var(--gold);
+      border-radius: var(--radius-sm);
+      padding: 18px 20px;
+      margin: 20px 0;
+      font-size: 0.95rem;
+    }
+    .box-gold .box-label {
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      margin-bottom: 6px;
+    }
+
+    /* ========== チェックリスト ========== */
+    .checklist { list-style: none; padding: 0; }
+    .checklist li {
+      padding: 10px 12px 10px 40px;
+      position: relative;
+      border-bottom: 1px solid var(--gray-light);
+      font-size: 0.95rem;
+    }
+    .checklist li:last-child { border-bottom: none; }
+    .checklist li::before {
+      content: "✓";
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--green);
+      font-weight: 900;
+      font-size: 1rem;
+    }
+
+    /* ========== 数字バッジ付きステップ ========== */
+    .steps { list-style: none; padding: 0; counter-reset: step; }
+    .step-item {
+      counter-increment: step;
+      position: relative;
+      padding: 0 0 32px 64px;
+    }
+    .step-item:last-child { padding-bottom: 0; }
+    .step-item::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 44px;
+      height: 44px;
+      background: var(--blue);
+      color: var(--white);
+      font-weight: 900;
+      font-size: 1.1rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .step-item::after {
+      content: "";
+      position: absolute;
+      left: 22px;
+      top: 44px;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--blue), transparent);
+      opacity: 0.3;
+    }
+    .step-item:last-child::after { display: none; }
+    .step-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 8px;
+      padding-top: 10px;
+    }
+    .step-body { font-size: 0.95rem; color: var(--gray); }
+
+    /* ========== テーブル ========== */
+    .table-wrap { overflow-x: auto; margin: 20px 0; border-radius: var(--radius-sm); }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      background: var(--white);
+      box-shadow: var(--shadow-sm);
+    }
+    thead { background: var(--navy); color: var(--white); }
+    thead th {
+      padding: 12px 14px;
+      font-weight: 700;
+      text-align: left;
+      white-space: nowrap;
+    }
+    tbody tr:nth-child(even) { background: var(--gray-light); }
+    tbody td {
+      padding: 11px 14px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    .badge-yes {
+      display: inline-block;
+      background: var(--green);
+      color: white;
+      padding: 2px 10px;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+    .badge-no {
+      display: inline-block;
+      background: var(--gray-mid);
+      color: white;
+      padding: 2px 10px;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+    .badge-cond {
+      display: inline-block;
+      background: var(--gold);
+      color: white;
+      padding: 2px 10px;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    /* ========== 大数字ハイライト ========== */
+    .big-stat {
+      text-align: center;
+      padding: 28px 20px;
+      background: linear-gradient(135deg, var(--navy), var(--navy-mid));
+      color: white;
+      border-radius: var(--radius);
+      margin: 28px 0;
+    }
+    .big-stat .stat-num {
+      font-size: clamp(2.2rem, 6vw, 3.5rem);
+      font-weight: 900;
+      color: #fbbf24;
+      display: block;
+      line-height: 1;
+    }
+    .big-stat .stat-label { font-size: 0.95rem; color: #bfdbfe; margin-top: 6px; }
+
+    /* ========== タグリスト（経費など） ========== */
+    .tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0; }
+    .tag {
+      display: inline-block;
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+    .tag-ok { background: var(--green-light); color: var(--green); border: 1px solid #6ee7b7; }
+    .tag-ng { background: var(--red-light); color: var(--red); border: 1px solid #fca5a5; }
+
+    /* ========== 比較カード ========== */
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 20px 0;
+    }
+    .compare-card {
+      background: var(--white);
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+    .compare-card.featured {
+      border-color: var(--blue);
+      background: var(--blue-light);
+    }
+    .compare-card-title {
+      font-size: 0.9rem;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .compare-card.featured .compare-card-title { color: var(--blue); }
+    .compare-card ul { list-style: none; padding: 0; font-size: 0.88rem; }
+    .compare-card li { padding: 5px 0; border-bottom: 1px solid var(--gray-light); }
+    .compare-card li:last-child { border-bottom: none; }
+
+    /* ========== インフォグラフィック系 ========== */
+    .flow-diagram {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin: 20px 0;
+    }
+    .flow-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 16px 20px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      margin-bottom: 4px;
+      position: relative;
+    }
+    .flow-item:not(:last-child)::after {
+      content: "↓";
+      position: absolute;
+      bottom: -22px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.1rem;
+      color: var(--blue);
+      font-weight: 900;
+      z-index: 1;
+    }
+    .flow-item:not(:last-child) { margin-bottom: 24px; }
+    .flow-num {
+      min-width: 32px;
+      height: 32px;
+      background: var(--blue);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+    .flow-content .flow-title { font-weight: 700; font-size: 0.95rem; color: var(--navy); }
+    .flow-content .flow-desc { font-size: 0.85rem; color: var(--gray); margin-top: 3px; }
+
+    /* ========== CTA アフィリエイト ========== */
+    .cta-box {
+      background: linear-gradient(135deg, #eff6ff, #dbeafe);
+      border: 1px solid #bfdbfe;
+      border-left: 4px solid var(--blue);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      margin: 36px 0;
+    }
+    .cta-box .cta-title {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .cta-box .cta-desc {
+      font-size: 0.9rem;
+      color: var(--gray);
+      margin-bottom: 16px;
+      line-height: 1.7;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: var(--blue);
+      color: white;
+      padding: 10px 24px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: background 0.2s;
+    }
+    .cta-btn:hover { background: #1d4ed8; text-decoration: none; }
+
+    /* ========== 記事内画像 ========== */
+    .article-img {
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin: 28px 0;
+      box-shadow: var(--shadow);
+    }
+    .article-img img { width: 100%; }
+    .article-img figcaption {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--gray-mid);
+      padding: 8px;
+      background: var(--gray-light);
+    }
+
+    /* ========== FAQ ========== */
+    .faq-item {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      margin-bottom: 12px;
+      background: var(--white);
+      overflow: hidden;
+    }
+    .faq-q {
+      font-weight: 700;
+      padding: 16px 20px 16px 56px;
+      position: relative;
+      font-size: 0.95rem;
+      color: var(--navy);
+    }
+    .faq-q::before {
+      content: "Q";
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 28px;
+      height: 28px;
+      background: var(--navy);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 900;
+    }
+    .faq-a {
+      padding: 0 20px 16px 56px;
+      font-size: 0.9rem;
+      color: var(--gray);
+      line-height: 1.75;
+      position: relative;
+    }
+    .faq-a::before {
+      content: "A";
+      position: absolute;
+      left: 16px;
+      top: 0;
+      width: 28px;
+      height: 28px;
+      background: var(--blue);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 900;
+    }
+
+    /* ========== まとめ ========== */
+    .summary-box {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+      color: white;
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      margin-top: 40px;
+    }
+    .summary-box h2 {
+      color: white;
+      border-left-color: #fbbf24;
+      margin-bottom: 20px;
+    }
+    .summary-box ul { color: #bfdbfe; }
+    .summary-box li { margin-bottom: 10px; font-size: 0.95rem; }
+    .summary-box strong { color: #fbbf24; }
+
+    /* ========== サイトフッター ========== */
+    .site-footer {
+      background: var(--navy);
+      color: #94a3b8;
+      text-align: center;
+      padding: 28px 20px;
+      font-size: 0.85rem;
+    }
+    .site-footer a { color: #60a5fa; }
+    .site-footer p { margin-top: 6px; }
+
+    /* ========== レスポンシブ ========== */
+    @media (max-width: 600px) {
+      .compare-grid { grid-template-columns: 1fr; }
+      .hero { padding: 40px 16px 36px; }
+      .toc { padding: 18px 16px; }
+      h2 { font-size: 1.2rem; }
+      .big-stat .stat-num { font-size: 2.2rem; }
+      .cta-box { padding: 20px 16px; }
+      .summary-box { padding: 24px 16px; }
+    }
+  </style>
+</head>
+<body>
+<nav data-nav="breadcrumb" aria-label="パンくずリスト" style="max-width:780px;margin:0 auto;padding:12px 24px;font-size:13px;color:#7b80a0;display:flex;gap:8px;flex-wrap:wrap;"><a href="/" style="color:#9d97ff;text-decoration:none;">トップ</a><span>›</span><a href="/category/ai-side-job/" style="color:#9d97ff;text-decoration:none;">AI副業</a><span>›</span><span style="color:#dde1f0;">【2026年版】副業の確定申告やり方完全ガイド｜スマホe-Tax手順から住民税バレ対策まで</span></nav>
+
+<!-- サイトヘッダー -->
+<header class="site-header">
+  <div class="site-header-inner">
+    <a href="https://www.shift-breeze.com" class="site-title">Shift<span>Breeze</span></a>
+  </div>
+</header>
+
+<!-- ヒーローエリア -->
+<section class="hero">
+  <span class="hero-badge">2026年最新版 ✦ 税理士監修ベース</span>
+  <h1>副業の確定申告<span class="highlight">やり方</span>完全ガイド<br>スマホe-Taxで今日中に終わらせる</h1>
+  <p class="hero-desc">
+    「いくらから必要？」「どうやって申告する？」「会社にバレない？」<br>
+    副業初心者が抱える全疑問に、ステップバイステップで答えます。
+  </p>
+  <div class="hero-meta">
+    <span class="hero-meta-item">📅 2026年2月〜3月申告対応</span>
+    <span class="hero-meta-item">📱 スマホe-Tax手順つき</span>
+    <span class="hero-meta-item">🔒 住民税バレ対策あり</span>
+  </div>
+  <div class="hero-eyecatch">
+    <img src="/images/articles/cc_20260426_220042/eyecatch.png" alt="副業の確定申告やり方完全ガイド">
+  </div>
+</section>
+
+<!-- メインコンテンツ -->
+<main class="main-content">
+  <div class="container">
+
+    <!-- リード文 -->
+    <p>副業を始めて初めての確定申告シーズン。「どこから手をつければいいの？」と戸惑う人は少なくありません。</p>
+    <p>実際、国税庁のデータによると確定申告の提出者数は年々増加しており、副業を持つ会社員の申告件数も増加傾向にあります。しかし、<strong>「申告が必要なのに知らなかった」「やり方が分からず放置していた」</strong>という声も多く聞かれます。</p>
+    <p>本記事では、2026年（令和7年分）の確定申告に対応した最新情報を元に、<strong>副業の確定申告が必要なケース・ステップバイステップの手順・節税できる経費・会社にバレないための住民税対策</strong>まで徹底解説します。</p>
+
+    <!-- 目次 -->
+    <nav class="toc">
+      <div class="toc-title">📋 この記事の目次</div>
+      <ol class="toc-list">
+        <li><a href="#required">そもそも確定申告は必要？自分でチェック</a></li>
+        <li><a href="#income-type">副業の「所得区分」を正しく理解する</a></li>
+        <li><a href="#documents">確定申告に必要な書類を揃える</a></li>
+        <li><a href="#steps">【2026年版】確定申告の5ステップ完全手順</a></li>
+        <li><a href="#etax">スマホe-Taxの具体的な操作手順</a></li>
+        <li><a href="#expenses">経費で節税！副業で認められる費用一覧</a></li>
+        <li><a href="#resident-tax">会社にバレない住民税の申告方法</a></li>
+        <li><a href="#mistakes">確定申告でやりがちなミスと罰則</a></li>
+        <li><a href="#blue-return">青色申告で最大65万円の節税</a></li>
+        <li><a href="#faq">よくある質問</a></li>
+      </ol>
+    </nav>
+
+    <!-- ===== SECTION 1: 確定申告は必要？ ===== -->
+    <section class="section" id="required">
+      <h2>1. そもそも確定申告は必要？自分でチェック</h2>
+
+      <p>まず前提として、<strong>会社員は毎年「年末調整」で所得税の精算が完了</strong>しています。ただし、副業収入があると話が変わります。</p>
+
+      <div class="big-stat">
+        <span class="stat-num">20万円</span>
+        <p class="stat-label">副業所得がこの金額を超えたら確定申告が必要（会社員の場合）</p>
+      </div>
+
+      <div class="box-warning">
+        <div class="box-label">⚠ 注意：「収入」ではなく「所得」</div>
+        <strong>所得 ＝ 収入 − 必要経費</strong><br>
+        例えば収入25万円でも、経費（交通費・PC代など）が8万円かかっていれば所得は17万円。この場合は申告不要です。
+      </div>
+
+      <h3>申告が必要なケース・不要なケースの早見表</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>状況</th>
+              <th>確定申告</th>
+              <th>住民税申告</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>副業の所得が<strong>20万円超</strong></td>
+              <td><span class="badge-yes">必要</span></td>
+              <td><span class="badge-yes">必要</span></td>
+            </tr>
+            <tr>
+              <td>副業の所得が<strong>20万円以下</strong></td>
+              <td><span class="badge-no">原則不要</span></td>
+              <td><span class="badge-yes">必要</span></td>
+            </tr>
+            <tr>
+              <td>医療費控除・ふるさと納税で申告する場合（所得20万円以下でも）</td>
+              <td><span class="badge-yes">必要</span></td>
+              <td><span class="badge-yes">必要</span></td>
+            </tr>
+            <tr>
+              <td>2か所以上から給与をもらっている（乙欄分が20万円超）</td>
+              <td><span class="badge-yes">必要</span></td>
+              <td><span class="badge-yes">必要</span></td>
+            </tr>
+            <tr>
+              <td>副業が完全に赤字（経費＞収入）</td>
+              <td><span class="badge-cond">任意だが損益通算のためにしたほうがお得</span></td>
+              <td><span class="badge-yes">必要</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="box-key">
+        <div class="box-label">📌 ポイント</div>
+        「確定申告が不要」でも<strong>住民税の申告は市区町村に必要</strong>な場合があります。確定申告をすれば自動的に住民税も申告されるため、20万円以下であっても確定申告しておくほうが手間は一度で済みます。
+      </div>
+    </section>
+
+    <!-- ===== SECTION 2: 所得区分 ===== -->
+    <section class="section" id="income-type">
+      <h2>2. 副業の「所得区分」を正しく理解する</h2>
+
+      <p>副業の確定申告でつまずきやすいのが<strong>所得の種類（区分）</strong>です。所得区分によって、申告書の書き方・節税の手段が変わります。</p>
+
+      <div class="compare-grid">
+        <div class="compare-card featured">
+          <div class="compare-card-title">🟦 雑所得（業務に係るもの）</div>
+          <ul>
+            <li>📌 <strong>多くの副業がここに該当</strong></li>
+            <li>ライティング・アフィリエイト</li>
+            <li>動画投稿・音楽・デザイン</li>
+            <li>フリマアプリ・ハンドメイド販売</li>
+            <li>株式・FX（別途申告ルールあり）</li>
+            <li>損益通算（赤字相殺）は<strong>不可</strong></li>
+            <li>青色申告特別控除は<strong>使えない</strong></li>
+          </ul>
+        </div>
+        <div class="compare-card">
+          <div class="compare-card-title">🟩 事業所得</div>
+          <ul>
+            <li>📌 <strong>独立した事業として認定された場合</strong></li>
+            <li>フリーランスエンジニア</li>
+            <li>継続的なコンサルティング</li>
+            <li>帳簿作成・保存が必須</li>
+            <li>損益通算（赤字相殺）<strong>可</strong></li>
+            <li>青色申告特別控除（最大65万円）<strong>使える</strong></li>
+            <li>収入300万円超が目安</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="box-gold">
+        <div class="box-label">💡 2022年改正のポイント（今も有効）</div>
+        副業収入が<strong>300万円以下</strong>でも、<strong>帳簿・書類を正しく保存</strong>していれば事業所得として申告できる可能性があります。帳簿付けを習慣化することで、将来的な節税の選択肢が広がります。
+      </div>
+
+      <figure class="article-img">
+        <img src="/images/articles/cc_20260426_220042/income-types.png" alt="副業の所得区分（雑所得と事業所得の違い）">
+        <figcaption>副業の所得区分の違いを図解</figcaption>
+      </figure>
+    </section>
+
+    <!-- ===== SECTION 3: 必要書類 ===== -->
+    <section class="section" id="documents">
+      <h2>3. 確定申告に必要な書類を揃える</h2>
+
+      <p>確定申告の書類準備は、意外とここで詰まる人が多いです。事前に揃えておくとスムーズです。</p>
+
+      <h3>必ず準備するもの</h3>
+      <ul class="checklist">
+        <li><strong>マイナンバーカード</strong>（e-Tax認証に必要。2025年9月でID・パスワード方式は終了）</li>
+        <li><strong>本業の源泉徴収票</strong>（12月〜1月に勤務先から交付）</li>
+        <li><strong>副業の収入証明</strong>（取引明細・振込記録・支払調書など）</li>
+        <li><strong>経費の領収書・レシート</strong>（経費計上する場合）</li>
+        <li><strong>銀行口座情報</strong>（還付がある場合の振込先）</li>
+      </ul>
+
+      <h3>控除を受ける場合に追加で必要なもの</h3>
+      <ul class="checklist">
+        <li><strong>医療費控除</strong>：医療費の領収書・医療費通知書</li>
+        <li><strong>ふるさと納税（ワンストップ以外）</strong>：寄附金受領証明書</li>
+        <li><strong>生命保険料控除</strong>：保険会社からの控除証明書</li>
+        <li><strong>住宅ローン控除（初年度）</strong>：金融機関の年末残高証明書</li>
+      </ul>
+
+      <div class="box-success">
+        <div class="box-label">✅ 準備が楽になるコツ</div>
+        副業を始めたときから<strong>Googleスプレッドシートや家計簿アプリ</strong>で収入・支出を月次管理しておくと、確定申告時に書類を探す手間が大幅に減ります。
+      </div>
+    </section>
+
+    <!-- ===== SECTION 4: 5ステップ手順 ===== -->
+    <section class="section" id="steps">
+      <h2>4. 【2026年版】確定申告の5ステップ完全手順</h2>
+
+      <p>副業の確定申告を大きく分けると<strong>5つのステップ</strong>で完了します。それぞれ詳しく解説していきます。</p>
+
+      <div class="box-key">
+        <div class="box-label">📅 2026年の申告期間</div>
+        2025年（令和7年）分の確定申告：<strong>2026年2月16日（月）〜 3月16日（月）</strong><br>
+        e-Taxなら24時間いつでも申告可能。混み合う最終週を避けて早めに済ませましょう。
+      </div>
+
+      <ol class="steps">
+        <li class="step-item">
+          <div class="step-title">収入・経費の集計</div>
+          <div class="step-body">
+            1月〜12月の副業収入をすべて洗い出し、対応する経費を差し引いて<strong>「所得」</strong>を計算します。領収書・銀行明細・振込記録を整理しましょう。
+          </div>
+        </li>
+        <li class="step-item">
+          <div class="step-title">申告書の作成（e-Taxがおすすめ）</div>
+          <div class="step-body">
+            国税庁の「確定申告書等作成コーナー」にアクセスし、画面の案内に従って入力します。スマホからも操作可能です（詳細はStep5で解説）。
+          </div>
+        </li>
+        <li class="step-item">
+          <div class="step-title">住民税の徴収方法を選択</div>
+          <div class="step-body">
+            申告書の第二表に「住民税の徴収方法」という欄があります。ここで<strong>「自分で納付（普通徴収）」</strong>を選ぶことで、副業分の住民税が会社に通知されるリスクを下げられます（詳細はSection 7で解説）。
+          </div>
+        </li>
+        <li class="step-item">
+          <div class="step-title">申告書の提出</div>
+          <div class="step-body">
+            e-Taxでオンライン送信するか、税務署に郵送または持参して提出します。e-Taxなら提出後すぐに受付完了通知が届きます。
+          </div>
+        </li>
+        <li class="step-item">
+          <div class="step-title">納税（または還付の受取）</div>
+          <div class="step-body">
+            追加の所得税があれば<strong>3月17日まで</strong>に納付。逆に源泉徴収しすぎていた分は還付されます（通常1〜2か月後に指定口座へ振込）。
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- アフィリエイト CTA 1 -->
+    <div class="cta-box">
+      <div class="cta-title">確定申告を楽に終わらせたい方へ</div>
+      <div class="cta-desc">
+        クラウド会計ソフトを使えば、銀行明細やレシートを自動取得して申告書を自動作成。
+        e-Taxへのデータ連携もワンクリックで完結します。
+      </div>
+      <!-- AFFILIATE:category=finance:label=確定申告ソフトを無料で試す -->
+    </div>
+
+    <!-- ===== SECTION 5: e-Tax スマホ手順 ===== -->
+    <section class="section" id="etax">
+      <h2>5. スマホe-Taxの具体的な操作手順</h2>
+
+      <p>2026年現在、<strong>約4人に3人がe-Taxを利用</strong>しています。スマホがあれば税務署に行かず自宅で申告が完結します。ここでは実際の操作手順を解説します。</p>
+
+      <h3>事前準備（初回のみ）</h3>
+      <ul class="checklist">
+        <li>マイナンバーカードの暗証番号を確認しておく（4桁PIN + 署名用パスワード）</li>
+        <li>スマホに「マイナポータルアプリ」をインストール（App Store / Google Play）</li>
+        <li>スマホがマイナンバーカードのNFC読み取りに対応しているか確認</li>
+      </ul>
+
+      <div class="flow-diagram">
+        <div class="flow-item">
+          <div class="flow-num">1</div>
+          <div class="flow-content">
+            <div class="flow-title">国税庁「確定申告書等作成コーナー」にアクセス</div>
+            <div class="flow-desc">スマホブラウザ（iOS: Safari / Android: Chrome）で「確定申告書等作成コーナー」を検索してアクセス</div>
+          </div>
+        </div>
+        <div class="flow-item">
+          <div class="flow-num">2</div>
+          <div class="flow-content">
+            <div class="flow-title">マイナポータルで本人認証</div>
+            <div class="flow-desc">「マイナポータル連携でログイン」を選択 → マイナポータルアプリを起動 → マイナンバーカードをスマホで読み取り</div>
+          </div>
+        </div>
+        <div class="flow-item">
+          <div class="flow-num">3</div>
+          <div class="flow-content">
+            <div class="flow-title">申告書の種類を選択</div>
+            <div class="flow-desc">「所得税」→「給与所得＋副業（雑所得など）」を選択。初めての場合は「確定申告書B」相当の画面が表示される</div>
+          </div>
+        </div>
+        <div class="flow-item">
+          <div class="flow-num">4</div>
+          <div class="flow-content">
+            <div class="flow-title">収入・所得を入力</div>
+            <div class="flow-desc">源泉徴収票の数字を入力（本業分） → 副業収入・経費を入力 → 各種控除を入力（医療費・ふるさと納税など）</div>
+          </div>
+        </div>
+        <div class="flow-item">
+          <div class="flow-num">5</div>
+          <div class="flow-content">
+            <div class="flow-title">住民税の徴収方法を「自分で納付」に変更</div>
+            <div class="flow-desc">「住民税等に関する事項」→「給与・公的年金等以外の所得に係る住民税の徴収方法」→「自分で納付」を選択</div>
+          </div>
+        </div>
+        <div class="flow-item">
+          <div class="flow-num">6</div>
+          <div class="flow-content">
+            <div class="flow-title">内容確認・送信</div>
+            <div class="flow-desc">申告書の確認画面で内容をチェック → マイナンバーカードで電子署名 → e-Taxへ送信完了</div>
+          </div>
+        </div>
+      </div>
+
+      <figure class="article-img">
+        <img src="/images/articles/cc_20260426_220042/etax-steps.png" alt="スマホe-Taxで副業の確定申告をする手順">
+        <figcaption>スマホe-Taxの入力画面イメージ（国税庁「確定申告書等作成コーナー」）</figcaption>
+      </figure>
+
+      <div class="box-gold">
+        <div class="box-label">💡 マイナポータル連携でさらに楽に</div>
+        マイナポータルと連携すると、医療費情報・生命保険料控除証明書・ふるさと納税の寄附金情報などを<strong>自動入力</strong>できます。連携は「マイナポータル」→「もっとつながる」から事前設定が必要です。
+      </div>
+    </section>
+
+    <!-- ===== SECTION 6: 経費 ===== -->
+    <section class="section" id="expenses">
+      <h2>6. 経費で節税！副業で認められる費用一覧</h2>
+
+      <p>確定申告で<strong>経費を正しく計上するほど課税所得が減り、納める税金が少なくなります</strong>。副業の種類や状況によって認められる経費は変わりますが、代表的なものをまとめました。</p>
+
+      <h3>経費に計上できるもの（〇）</h3>
+
+      <div class="tag-list">
+        <span class="tag tag-ok">PC・タブレット購入費</span>
+        <span class="tag tag-ok">スマホ通信費（業務分）</span>
+        <span class="tag tag-ok">インターネット回線費</span>
+        <span class="tag tag-ok">書籍・教材費</span>
+        <span class="tag tag-ok">クラウドソフト費（Canva等）</span>
+        <span class="tag tag-ok">取材・移動の交通費</span>
+        <span class="tag tag-ok">セミナー・勉強会参加費</span>
+        <span class="tag tag-ok">名刺・印刷費</span>
+        <span class="tag tag-ok">家賃（家事按分）</span>
+        <span class="tag tag-ok">電気代（家事按分）</span>
+        <span class="tag tag-ok">外注費・業務委託費</span>
+        <span class="tag tag-ok">銀行振込手数料</span>
+      </div>
+
+      <h3>経費に計上できないもの（×）</h3>
+
+      <div class="tag-list">
+        <span class="tag tag-ng">プライベートの食事代</span>
+        <span class="tag tag-ng">完全プライベートの旅行費</span>
+        <span class="tag tag-ng">生命保険料・社会保険料</span>
+        <span class="tag tag-ng">所得税・住民税</span>
+        <span class="tag tag-ng">家族への給与（白色申告）</span>
+        <span class="tag tag-ng">罰金・反則金</span>
+      </div>
+
+      <h3>家事按分の計算方法</h3>
+      <p>自宅で副業をしている場合、家賃・電気代・通信費などは「業務利用分のみ」経費にできます。この割合計算を<strong>家事按分</strong>といいます。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>費用の種類</th>
+              <th>按分の目安</th>
+              <th>計算例</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>家賃（仕事部屋あり）</td>
+              <td>仕事部屋の面積 ÷ 部屋全体の面積</td>
+              <td>8畳/40畳 = 20%</td>
+            </tr>
+            <tr>
+              <td>電気代</td>
+              <td>業務時間 ÷ 在宅時間の割合</td>
+              <td>月50時間業務/200時間在宅 = 25%</td>
+            </tr>
+            <tr>
+              <td>スマホ通信費</td>
+              <td>業務利用時間・件数の割合</td>
+              <td>業務利用50% → 月1万円の50%=5千円</td>
+            </tr>
+            <tr>
+              <td>PCなど機器（10万円未満）</td>
+              <td>購入年に全額経費計上可（少額減価償却）</td>
+              <td>9万円のPC → 全額経費</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="box-warning">
+        <div class="box-label">⚠ 注意：過剰な按分は税務調査の対象に</div>
+        家事按分の割合を合理的に説明できないと、税務調査で否認されることがあります。<strong>実態に即した合理的な割合</strong>を設定し、根拠をメモしておきましょう。
+      </div>
+    </section>
+
+    <!-- アフィリエイト CTA 2 -->
+    <div class="cta-box">
+      <div class="cta-title">副業の経費管理を効率化するなら</div>
+      <div class="cta-desc">
+        レシートを撮影するだけで自動仕訳してくれるクラウド会計ソフトを使うと、経費管理と確定申告の準備が一度にできます。無料プランからスタートできます。
+      </div>
+      <!-- AFFILIATE:category=saas:label=クラウド会計ソフトを試す -->
+    </div>
+
+    <!-- ===== SECTION 7: 住民税バレ対策 ===== -->
+    <section class="section" id="resident-tax">
+      <h2>7. 会社にバレない住民税の申告方法</h2>
+
+      <p>「副業が会社にバレたくない」という相談は非常に多いです。バレる最大の理由は<strong>住民税の金額</strong>です。</p>
+
+      <h3>なぜ住民税でバレるのか？</h3>
+      <p>住民税は前年の所得をもとに計算され、会社員の場合は<strong>会社経由で天引き（特別徴収）</strong>されます。副業の収入が増えると住民税が増加し、経理・人事の担当者が「去年より税額が増えている」と気づいてしまう可能性があります。</p>
+
+      <h3>対策：「普通徴収」に切り替える手順</h3>
+
+      <div class="box-success">
+        <div class="box-label">✅ これをやるだけでバレるリスクを大幅に下げられる</div>
+        確定申告書の<strong>第二表</strong>にある「給与、公的年金等以外の所得に係る住民税の徴収方法の選択」という欄で、<strong>「自分で納付」</strong>を選ぶだけです。
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>徴収方法</th>
+              <th>仕組み</th>
+              <th>バレるリスク</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>特別徴収（デフォルト）</td>
+              <td>副業分も含めて会社が天引き</td>
+              <td>⚠ 高い（税額増加で気づかれる）</td>
+            </tr>
+            <tr>
+              <td><strong>普通徴収（自分で納付）</strong></td>
+              <td>副業分の住民税を自分で納付</td>
+              <td>✅ 大幅に低減できる</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="box-warning">
+        <div class="box-label">⚠ 完璧には防げないケースもある</div>
+        副業が「給与収入（アルバイト等）」の場合、自治体の処理によっては特別徴収になることがあります。また、副業を禁止している会社では就業規則の違反になる可能性もあります。副業の可否は事前に就業規則を確認しましょう。
+      </div>
+    </section>
+
+    <!-- ===== SECTION 8: よくあるミスと罰則 ===== -->
+    <section class="section" id="mistakes">
+      <h2>8. 確定申告でやりがちなミスと罰則</h2>
+
+      <p>確定申告を怠ったり誤ったりすると、<strong>ペナルティとして追加の税金が課される</strong>ことがあります。知らなかったでは済まされないので注意しましょう。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>ミスの種類</th>
+              <th>課されるペナルティ</th>
+              <th>税率の目安</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>無申告</strong>（申告自体をしなかった）</td>
+              <td>無申告加算税</td>
+              <td>本税の15〜20%（期限後申告は5%）</td>
+            </tr>
+            <tr>
+              <td><strong>過少申告</strong>（申告額が少なかった）</td>
+              <td>過少申告加算税</td>
+              <td>本税の10〜15%</td>
+            </tr>
+            <tr>
+              <td><strong>延滞</strong>（納付が遅れた）</td>
+              <td>延滞税</td>
+              <td>年2.4%〜8.7%（期間に応じて変動）</td>
+            </tr>
+            <tr>
+              <td><strong>隠蔽・仮装</strong>（意図的な脱税）</td>
+              <td>重加算税</td>
+              <td>本税の35〜40%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>「申告忘れた！」と気づいたら</h3>
+      <p>期限後でも<strong>自分から申告（期限後申告）</strong>すれば、無申告加算税が5%に軽減されます。税務署から指摘される前に自主的に申告することが重要です。</p>
+
+      <div class="box-key">
+        <div class="box-label">📌 5年間の時効に注意</div>
+        確定申告の修正・申告漏れは、<strong>原則5年（悪質な場合は7年）</strong>遡って調査されます。「もう時間が経ったから大丈夫」とは限りません。
+      </div>
+    </section>
+
+    <!-- ===== SECTION 9: 青色申告 ===== -->
+    <section class="section" id="blue-return">
+      <h2>9. 青色申告で最大65万円の節税</h2>
+
+      <p>副業収入が増えてきたら、<strong>青色申告</strong>の申請を検討しましょう。手間は増えますが、節税効果は絶大です。</p>
+
+      <div class="compare-grid">
+        <div class="compare-card">
+          <div class="compare-card-title">白色申告（デフォルト）</div>
+          <ul>
+            <li>帳簿は簡易記録でOK</li>
+            <li>特別控除：<strong>なし</strong></li>
+            <li>損益通算：<strong>不可</strong></li>
+            <li>赤字の繰越：<strong>不可</strong></li>
+            <li>事前申請：不要</li>
+          </ul>
+        </div>
+        <div class="compare-card featured">
+          <div class="compare-card-title">🌟 青色申告（申請制）</div>
+          <ul>
+            <li>複式簿記（会計ソフトで対応）</li>
+            <li>特別控除：<strong>最大65万円</strong></li>
+            <li>損益通算：<strong>可</strong></li>
+            <li>赤字の3年繰越：<strong>可</strong></li>
+            <li>事前申請：開業届＋青色申告承認申請書が必要</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>青色申告の節税シミュレーション</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>申告方式</th>
+              <th>副業所得（仮）</th>
+              <th>特別控除</th>
+              <th>課税される所得</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>白色申告</td>
+              <td>100万円</td>
+              <td>0円</td>
+              <td>100万円</td>
+            </tr>
+            <tr>
+              <td><strong>青色申告（65万控除）</strong></td>
+              <td>100万円</td>
+              <td><strong>65万円</strong></td>
+              <td><strong>35万円</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>所得税率が20%の場合、この差で<strong>約13万円の節税</strong>になります。副業が軌道に乗ってきたら積極的に検討する価値があります。</p>
+
+      <div class="box-key">
+        <div class="box-label">📌 青色申告の手続き</div>
+        青色申告をするには<strong>税務署への「青色申告承認申請書」の提出が必要</strong>です。事業開始から2ヶ月以内（既存の場合は3月15日まで）に提出しましょう。クラウド会計ソフトを使えば複式簿記も自動化できます。
+      </div>
+
+      <!-- アフィリエイト CTA 3 -->
+      <div class="cta-box">
+        <div class="cta-title">副業を本格化させるなら副業案件プラットフォームを活用</div>
+        <div class="cta-desc">
+          副業収入を増やして確定申告が必要になるレベルを目指すなら、スキルに合った案件を探せるプラットフォームを活用しましょう。
+        </div>
+        <!-- AFFILIATE:category=freelance:label=副業案件を探す -->
+      </div>
+    </section>
+
+    <!-- ===== SECTION 10: FAQ ===== -->
+    <section class="section" id="faq">
+      <h2>10. よくある質問</h2>
+
+      <div class="faq-item">
+        <div class="faq-q">副業の収入が1円でも確定申告が必要ですか？</div>
+        <div class="faq-a">
+          会社員（給与所得者）の場合、副業の「所得」（収入−経費）が年間20万円以下なら原則として確定申告は不要です。ただし、医療費控除などで確定申告をする場合は、20万円以下でも副業分を含めて申告する必要があります。なお、住民税については所得が1円でも原則申告が必要です。
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">アフィリエイト収入の確定申告はどうすればいいですか？</div>
+        <div class="faq-a">
+          アフィリエイト収入は「雑所得（業務に係るもの）」に区分されます。1年間の受取金額（ASP等からの振込額）から、サーバー代・ドメイン費用・関連書籍代などの必要経費を差し引いた所得が20万円を超えたら確定申告が必要です。
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">副業が赤字でも確定申告した方がいいですか？</div>
+        <div class="faq-a">
+          副業が事業所得（青色申告）の場合は、赤字を給与所得と損益通算できるため、確定申告することで税金の還付を受けられる可能性があります。雑所得の場合は損益通算ができないため、節税効果はありませんが、赤字実態の記録として申告しておくことは有益です。
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">確定申告は税理士に頼まないといけませんか？</div>
+        <div class="faq-a">
+          副業の収入が単純な雑所得の範囲であれば、クラウド会計ソフトやe-Taxを使って自分で申告できます。所得が複雑（不動産・株・複数の事業）または金額が大きい場合は、税理士に相談することをおすすめします。初年度だけ税理士に依頼し、やり方を覚えてから自分でやる方も多いです。
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">2026年からe-Taxのやり方で変わったことはありますか？</div>
+        <div class="faq-a">
+          大きな変更点として、ID・パスワード方式（2要素認証なし）の新規発行が2025年9月で終了しました。2026年以降にe-Taxを初めて使う方は<strong>マイナンバーカード方式</strong>のみ使用可能です。マイナンバーカードを持っていない方は事前に取得が必要です。また、マイナポータルとの連携で、生命保険料控除や医療費などを自動取得できる範囲が拡大しています。
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== まとめ ===== -->
+    <section class="summary-box">
+      <h2>まとめ：副業の確定申告チェックリスト</h2>
+      <ul>
+        <li>✅ <strong>副業の「所得」（収入−経費）が年20万円超</strong>なら確定申告が必要</li>
+        <li>✅ <strong>所得20万円以下でも住民税の申告</strong>は市区町村に必要</li>
+        <li>✅ <strong>ほとんどの副業は「雑所得」</strong>に区分される。帳簿保存で事業所得も視野に</li>
+        <li>✅ <strong>スマホ＋マイナンバーカード</strong>でe-Taxから手軽に申告できる（2026年版）</li>
+        <li>✅ <strong>住民税の「普通徴収」</strong>を選択すれば、会社へのバレリスクを大幅に低減できる</li>
+        <li>✅ <strong>経費を正しく計上</strong>して節税。家賃・通信費・書籍代などを忘れずに</li>
+        <li>✅ 副業収入が増えてきたら<strong>青色申告（最大65万円控除）</strong>の申請を検討する</li>
+        <li>✅ 申告を忘れてもすぐに<strong>期限後申告</strong>することで加算税を最小化できる</li>
+      </ul>
+    </section>
+
+  </div>
+</main>
+
+<!-- サイトフッター -->
+<footer class="site-footer">
+  <a href="https://www.shift-breeze.com">shift-breeze.com</a>
+  <p>&copy; ShiftBreeze. All rights reserved.</p>
+</footer>
+
+<section data-nav="related" data-task-id="cc_20260426_220042" data-category="ai-side-job" style="max-width:780px;margin:48px auto 32px;padding:0 24px;"><h2 style="font-size:20px;font-weight:700;color:#fff;margin:0 0 16px;padding:0;border:none;background:none;">関連記事</h2><div data-related-list style="display:grid;grid-template-columns:1fr;gap:12px;"><div style="color:#7b80a0;font-size:14px;">読み込み中...</div></div><script>(async function(){try{const res=await fetch("/articles/index.json");const data=await res.json();const sec=document.querySelector('[data-nav="related"]');const list=sec.querySelector("[data-related-list]");const me=sec.getAttribute("data-task-id");const cat=sec.getAttribute("data-category");const rel=(data.articles||[]).filter(a=>a.category===cat&&a.task_id!==me).slice(0,4);if(rel.length===0){list.innerHTML='<div style="color:#7b80a0;font-size:14px;">関連記事はまだありません。</div>';return;}list.innerHTML=rel.map(a=>`<a href="${a.url}" style="display:flex;gap:12px;padding:12px;background:#13161f;border:1px solid #1e2133;border-radius:10px;text-decoration:none;color:#dde1f0;">${a.eyecatch?`<img src="${a.eyecatch}" alt="" loading="lazy" style="width:96px;height:64px;object-fit:cover;border-radius:6px;flex-shrink:0;">`:""}<div style="font-size:14px;line-height:1.5;">${a.title}</div></a>`).join("");}catch(e){/* ignore */}})();</script></section>
+</body>
+</html>

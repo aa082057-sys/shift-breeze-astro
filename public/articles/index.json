@@ -1,6 +1,17 @@
 {
   "articles": [
     {
+      "task_id": "cc_20260426_220042",
+      "title": "【2026年版】副業の確定申告やり方完全ガイド｜スマホe-Tax手順から住民税バレ対策まで",
+      "description": "副業の確定申告のやり方を2026年最新版で完全解説。いくらから必要か・スマホe-Taxの手順・経費の書き方・会社にバレない住民税対策まで、会社員の初心者でも迷わず申告できるステップバイステップガイド。",
+      "keyword": "副業 確定申告 やり方",
+      "category": "ai-side-job",
+      "published_at": "2026-04-26",
+      "url": "/articles/cc_20260426_220042.html",
+      "eyecatch": "/images/articles/cc_20260426_220042/eyecatch.png",
+      "word_count": 0
+    },
+    {
       "task_id": "cc_20260425_000002",
       "title": "ChatGPT 使い方 完全ガイド【2026年最新】初心者が今日から使える基本操作と実践テクニック",
       "description": "ChatGPTの使い方を初心者向けに徹底解説。アカウント登録からコピペOKプロンプト集、仕事・日常での活用例30選、無料版と有料版の選び方、よくある失敗と対策、3日間ロードマップまで網羅。",
@@ -56,7 +67,7 @@
       "category": "skill-up"
     }
   ],
-  "updated_at": "2026-04-25T00:09:49.205951+00:00",
+  "updated_at": "2026-04-26T22:08:26.859255+00:00",
   "popularity_source": "recent",
   "categories": [
     {
@@ -86,6 +97,17 @@
   ],
   "popular_top5": [
     {
+      "task_id": "cc_20260426_220042",
+      "title": "【2026年版】副業の確定申告やり方完全ガイド｜スマホe-Tax手順から住民税バレ対策まで",
+      "description": "副業の確定申告のやり方を2026年最新版で完全解説。いくらから必要か・スマホe-Taxの手順・経費の書き方・会社にバレない住民税対策まで、会社員の初心者でも迷わず申告できるステップバイステップガイド。",
+      "keyword": "副業 確定申告 やり方",
+      "category": "ai-side-job",
+      "published_at": "2026-04-26",
+      "url": "/articles/cc_20260426_220042.html",
+      "eyecatch": "/images/articles/cc_20260426_220042/eyecatch.png",
+      "word_count": 0
+    },
+    {
       "task_id": "cc_20260425_000002",
       "title": "ChatGPT 使い方 完全ガイド【2026年最新】初心者が今日から使える基本操作と実践テクニック",
       "description": "ChatGPTの使い方を初心者向けに徹底解説。アカウント登録からコピペOKプロンプト集、仕事・日常での活用例30選、無料版と有料版の選び方、よくある失敗と対策、3日間ロードマップまで網羅。",
@@ -128,30 +150,19 @@
       "eyecatch": "/images/articles/cc_20260422_054243/eyecatch.png",
       "word_count": 0,
       "category": "skill-up"
-    },
-    {
-      "task_id": "cc_20260419_095302",
-      "title": "ブログ収益化の仕組みを完全図解｜初心者が月1万円までに辿る5つの導線と現実",
-      "description": "ブログから収益が生まれる仕組みを、収入源の構造・必要期間・ASPの選び方まで整理しました。憶測や煽りを排し、2026年時点のデータだけで構成しています。",
-      "keyword": "ブログ 収益化 仕組み",
-      "published_at": "2026-04-19",
-      "url": "/articles/cc_20260419_095302.html",
-      "eyecatch": "/images/articles/cc_20260419_095302/eyecatch.png",
-      "word_count": 5190,
-      "category": "skill-up"
     }
   ],
   "killer_by_category": {
     "ai-side-job": {
-      "task_id": "cc_20260423_044713",
-      "title": "【2026年版】AI副業の始め方｜初心者が最初の1ヶ月で5万円を達成する完全ロードマップ",
-      "description": "2026年、AI副業は今が最大のチャンス。ChatGPT・Claude・Midjourney活用法から週別アクションプラン、プラットフォーム比較まで。初心者が最初の1ヶ月で月5万円を達成するための完全ガイド。",
-      "keyword": "AI 副業 始め方 2026",
-      "published_at": "2026-04-23",
-      "url": "/articles/cc_20260423_044713.html",
-      "eyecatch": "/images/articles/cc_20260423_044713/eyecatch.png",
-      "word_count": 0,
-      "category": "ai-side-job"
+      "task_id": "cc_20260426_220042",
+      "title": "【2026年版】副業の確定申告やり方完全ガイド｜スマホe-Tax手順から住民税バレ対策まで",
+      "description": "副業の確定申告のやり方を2026年最新版で完全解説。いくらから必要か・スマホe-Taxの手順・経費の書き方・会社にバレない住民税対策まで、会社員の初心者でも迷わず申告できるステップバイステップガイド。",
+      "keyword": "副業 確定申告 やり方",
+      "category": "ai-side-job",
+      "published_at": "2026-04-26",
+      "url": "/articles/cc_20260426_220042.html",
+      "eyecatch": "/images/articles/cc_20260426_220042/eyecatch.png",
+      "word_count": 0
     },
     "skill-up": {
       "task_id": "cc_20260425_000002",
