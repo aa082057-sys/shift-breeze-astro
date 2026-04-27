@@ -1,6 +1,17 @@
 {
   "articles": [
     {
+      "task_id": "cc_20260427_010406",
+      "title": "Claude 3.5の使い方完全ガイド【2026年版】副業・仕事に即使えるプロンプト集付き",
+      "description": "Claude 3.5 Sonnetの使い方を初心者向けに解説。登録から始め方、Artifacts機能、プロジェクト機能、副業・仕事に活用できる実践プロンプト集まで網羅した2026年版完全ガイドです。",
+      "keyword": "Claude 3.5 使い方",
+      "category": "ai-side-job",
+      "published_at": "2026-04-27",
+      "url": "/articles/cc_20260427_010406.html",
+      "eyecatch": "/images/articles/cc_20260427_010406/eyecatch.png",
+      "word_count": 0
+    },
+    {
       "task_id": "cc_20260426_220042",
       "title": "【2026年版】副業の確定申告やり方完全ガイド｜スマホe-Tax手順から住民税バレ対策まで",
       "description": "副業の確定申告のやり方を2026年最新版で完全解説。いくらから必要か・スマホe-Taxの手順・経費の書き方・会社にバレない住民税対策まで、会社員の初心者でも迷わず申告できるステップバイステップガイド。",
@@ -67,7 +78,7 @@
       "category": "skill-up"
     }
   ],
-  "updated_at": "2026-04-26T22:08:26.859255+00:00",
+  "updated_at": "2026-04-27T01:14:25.380883+00:00",
   "popularity_source": "recent",
   "categories": [
     {
@@ -96,6 +107,17 @@
     }
   ],
   "popular_top5": [
+    {
+      "task_id": "cc_20260427_010406",
+      "title": "Claude 3.5の使い方完全ガイド【2026年版】副業・仕事に即使えるプロンプト集付き",
+      "description": "Claude 3.5 Sonnetの使い方を初心者向けに解説。登録から始め方、Artifacts機能、プロジェクト機能、副業・仕事に活用できる実践プロンプト集まで網羅した2026年版完全ガイドです。",
+      "keyword": "Claude 3.5 使い方",
+      "category": "ai-side-job",
+      "published_at": "2026-04-27",
+      "url": "/articles/cc_20260427_010406.html",
+      "eyecatch": "/images/articles/cc_20260427_010406/eyecatch.png",
+      "word_count": 0
+    },
     {
       "task_id": "cc_20260426_220042",
       "title": "【2026年版】副業の確定申告やり方完全ガイド｜スマホe-Tax手順から住民税バレ対策まで",
@@ -139,29 +161,18 @@
       "eyecatch": "/images/articles/cc_20260423_044713/eyecatch.png",
       "word_count": 0,
       "category": "ai-side-job"
-    },
-    {
-      "task_id": "cc_20260422_054243",
-      "title": "AI議事録自動化ツール完全比較2026｜3タイプ別おすすめ8選と失敗しない選び方ロードマップ",
-      "description": "AI議事録の自動化ツールを「Web会議一体型・専用型・ブラウザ型」の3タイプで整理し、Notta・tl;dv・Rimo Voiceなど主要8製品を料金・精度・連携で徹底比較。導入後3カ月の落とし穴まで2026年最新版で解説。",
-      "keyword": "AI 議事録 自動化 ツール",
-      "published_at": "2026-04-22",
-      "url": "/articles/cc_20260422_054243.html",
-      "eyecatch": "/images/articles/cc_20260422_054243/eyecatch.png",
-      "word_count": 0,
-      "category": "skill-up"
     }
   ],
   "killer_by_category": {
     "ai-side-job": {
-      "task_id": "cc_20260426_220042",
-      "title": "【2026年版】副業の確定申告やり方完全ガイド｜スマホe-Tax手順から住民税バレ対策まで",
-      "description": "副業の確定申告のやり方を2026年最新版で完全解説。いくらから必要か・スマホe-Taxの手順・経費の書き方・会社にバレない住民税対策まで、会社員の初心者でも迷わず申告できるステップバイステップガイド。",
-      "keyword": "副業 確定申告 やり方",
+      "task_id": "cc_20260427_010406",
+      "title": "Claude 3.5の使い方完全ガイド【2026年版】副業・仕事に即使えるプロンプト集付き",
+      "description": "Claude 3.5 Sonnetの使い方を初心者向けに解説。登録から始め方、Artifacts機能、プロジェクト機能、副業・仕事に活用できる実践プロンプト集まで網羅した2026年版完全ガイドです。",
+      "keyword": "Claude 3.5 使い方",
       "category": "ai-side-job",
-      "published_at": "2026-04-26",
-      "url": "/articles/cc_20260426_220042.html",
-      "eyecatch": "/images/articles/cc_20260426_220042/eyecatch.png",
+      "published_at": "2026-04-27",
+      "url": "/articles/cc_20260427_010406.html",
+      "eyecatch": "/images/articles/cc_20260427_010406/eyecatch.png",
       "word_count": 0
     },
     "skill-up": {

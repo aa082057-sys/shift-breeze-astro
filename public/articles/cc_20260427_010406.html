@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude 3.5の使い方完全ガイド【2026年版】副業・仕事に即使えるプロンプト集付き</title>
+  <meta name="description" content="Claude 3.5 Sonnetの使い方を初心者向けに解説。登録から始め方、Artifacts機能、プロジェクト機能、副業・仕事に活用できる実践プロンプト集まで網羅した2026年版完全ガイドです。">
+  <meta property="og:title" content="Claude 3.5の使い方完全ガイド【2026年版】副業・仕事に即使えるプロンプト集付き">
+  <meta property="og:description" content="Claude 3.5 Sonnetの使い方を初心者向けに解説。登録から始め方、Artifacts機能、プロジェクト機能、副業・仕事に活用できる実践プロンプト集付き。">
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', 'Meiryo', sans-serif;
+      background: #0a0e1a;
+      color: #dde3f0;
+      line-height: 1.8;
+      min-height: 100vh;
+    }
+    a { color: #f97316; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    img { max-width: 100%; height: auto; display: block; border-radius: 12px; }
+
+    /* ===== SITE HEADER ===== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10, 14, 26, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(249, 115, 22, 0.2);
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+    }
+    .site-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: #f97316;
+      text-decoration: none;
+    }
+    .site-title:hover { opacity: 0.85; text-decoration: none; }
+    .site-title span { color: #dde3f0; }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: linear-gradient(135deg, #0d1b3e 0%, #1a0a2e 40%, #0f1a2e 70%, #1a1010 100%);
+      padding: 70px 24px 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; left: 50%;
+      transform: translateX(-50%);
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(249,115,22,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: linear-gradient(90deg, #f97316, #a855f7);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .hero h1 {
+      font-size: clamp(1.6rem, 4vw, 2.6rem);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.3;
+      max-width: 760px;
+      margin: 0 auto 20px;
+    }
+    .hero h1 .accent { color: #f97316; }
+    .hero-desc {
+      font-size: 1.05rem;
+      color: #94a3b8;
+      max-width: 620px;
+      margin: 0 auto 32px;
+    }
+    .hero-meta {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      font-size: 0.82rem;
+      color: #64748b;
+    }
+    .hero-meta span::before {
+      content: '● ';
+      color: #f97316;
+      font-size: 0.6rem;
+    }
+    .hero-image {
+      margin: 36px auto 0;
+      max-width: 800px;
+      border-radius: 16px;
+      border: 1px solid rgba(249,115,22,0.2);
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+    .hero-image img { border-radius: 15px; }
+
+    /* ===== MAIN LAYOUT ===== */
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .main-content { padding: 60px 0; }
+
+    /* ===== TABLE OF CONTENTS ===== */
+    .toc {
+      background: #141826;
+      border: 1px solid rgba(168,85,247,0.25);
+      border-radius: 14px;
+      padding: 28px 32px;
+      margin-bottom: 56px;
+    }
+    .toc-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #a855f7;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .toc ol {
+      padding-left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .toc li { font-size: 0.92rem; }
+    .toc a { color: #94a3b8; transition: color 0.2s; }
+    .toc a:hover { color: #f97316; text-decoration: none; }
+
+    /* ===== SECTIONS ===== */
+    .section { margin-bottom: 64px; }
+    .section h2 {
+      font-size: clamp(1.3rem, 3vw, 1.7rem);
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 28px;
+      padding-bottom: 14px;
+      border-bottom: 2px solid #f97316;
+      line-height: 1.4;
+    }
+    .section h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #f97316;
+      margin: 32px 0 14px;
+    }
+    .section h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #a855f7;
+      margin: 24px 0 10px;
+    }
+    .section p { margin-bottom: 16px; color: #c8d0e0; }
+    .section ul, .section ol {
+      padding-left: 22px;
+      margin-bottom: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .section li { color: #c8d0e0; font-size: 0.97rem; }
+
+    /* ===== HIGHLIGHT BOX ===== */
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(249,115,22,0.1), rgba(168,85,247,0.08));
+      border: 1px solid rgba(249,115,22,0.3);
+      border-radius: 12px;
+      padding: 22px 26px;
+      margin: 24px 0;
+    }
+    .highlight-box p { color: #dde3f0; margin-bottom: 0; }
+    .highlight-box strong { color: #f97316; }
+
+    /* ===== INFO BOX ===== */
+    .info-box {
+      background: #141826;
+      border-left: 4px solid #06b6d4;
+      border-radius: 0 10px 10px 0;
+      padding: 18px 22px;
+      margin: 24px 0;
+    }
+    .info-box p { color: #94a3b8; margin-bottom: 0; font-size: 0.93rem; }
+
+    /* ===== STEPS ===== */
+    .steps { display: flex; flex-direction: column; gap: 16px; margin: 24px 0; }
+    .step {
+      display: flex;
+      gap: 16px;
+      background: #141826;
+      border-radius: 12px;
+      padding: 18px 20px;
+      align-items: flex-start;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+    .step-number {
+      flex-shrink: 0;
+      width: 36px; height: 36px;
+      background: linear-gradient(135deg, #f97316, #a855f7);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: #fff;
+    }
+    .step-content h4 { margin: 0 0 6px; color: #fff; font-size: 0.97rem; }
+    .step-content p { margin: 0; color: #94a3b8; font-size: 0.9rem; }
+
+    /* ===== TABLE ===== */
+    .table-wrap { overflow-x: auto; margin: 24px 0; border-radius: 12px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      min-width: 520px;
+    }
+    thead th {
+      background: #1e2438;
+      color: #f97316;
+      font-weight: 700;
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 2px solid rgba(249,115,22,0.3);
+    }
+    tbody tr { border-bottom: 1px solid rgba(255,255,255,0.05); }
+    tbody tr:hover { background: rgba(249,115,22,0.04); }
+    tbody td {
+      padding: 11px 16px;
+      color: #c8d0e0;
+      vertical-align: top;
+    }
+    .badge-free { color: #10b981; font-weight: 700; }
+    .badge-pro { color: #a855f7; font-weight: 700; }
+    .badge-best { color: #f97316; font-weight: 700; }
+    .check { color: #10b981; font-weight: 700; font-size: 1.1rem; }
+    .cross { color: #ef4444; font-weight: 700; font-size: 1.1rem; }
+    .triangle { color: #f59e0b; font-weight: 700; font-size: 1rem; }
+
+    /* ===== PROMPT CARDS ===== */
+    .prompt-cards { display: flex; flex-direction: column; gap: 28px; margin: 24px 0; }
+    .prompt-card {
+      background: #0d1020;
+      border: 1px solid rgba(168,85,247,0.2);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .prompt-card-header {
+      background: linear-gradient(90deg, rgba(168,85,247,0.2), rgba(249,115,22,0.1));
+      padding: 14px 20px;
+      border-bottom: 1px solid rgba(168,85,247,0.15);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .prompt-card-header .label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #a855f7;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .prompt-card-header .use-case {
+      font-size: 0.97rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .prompt-code {
+      padding: 18px 20px;
+      font-family: 'SFMono-Regular', 'Consolas', monospace;
+      font-size: 0.82rem;
+      line-height: 1.7;
+      color: #a5f3fc;
+      white-space: pre-wrap;
+      word-break: break-all;
+      background: transparent;
+    }
+    .prompt-tip {
+      padding: 12px 20px;
+      background: rgba(16,185,129,0.07);
+      border-top: 1px solid rgba(16,185,129,0.15);
+      font-size: 0.85rem;
+      color: #10b981;
+    }
+    .prompt-tip strong { color: #10b981; }
+
+    /* ===== FEATURE CARDS ===== */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin: 24px 0;
+    }
+    .feature-card {
+      background: #141826;
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: border-color 0.2s;
+    }
+    .feature-card:hover { border-color: rgba(249,115,22,0.3); }
+    .feature-icon { font-size: 1.8rem; margin-bottom: 10px; }
+    .feature-card h4 { font-size: 0.95rem; color: #fff; margin-bottom: 6px; }
+    .feature-card p { font-size: 0.85rem; color: #7f8fa6; margin: 0; line-height: 1.6; }
+
+    /* ===== COMPARISON BAR ===== */
+    .compare-item { margin-bottom: 16px; }
+    .compare-label {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 6px;
+      font-size: 0.9rem;
+      color: #c8d0e0;
+    }
+    .compare-bar-bg {
+      height: 8px;
+      background: #1e2438;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .compare-bar {
+      height: 100%;
+      border-radius: 4px;
+      background: linear-gradient(90deg, #f97316, #a855f7);
+    }
+
+    /* ===== AFFILIATE CTA ===== */
+    .affiliate-cta {
+      background: linear-gradient(135deg, #1a0a2e, #0d1b2a);
+      border: 1px solid rgba(168,85,247,0.3);
+      border-radius: 14px;
+      padding: 28px 28px 22px;
+      margin: 40px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .affiliate-cta::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 120px; height: 120px;
+      background: radial-gradient(circle, rgba(168,85,247,0.2), transparent 70%);
+    }
+    .affiliate-cta .cta-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #a855f7;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .affiliate-cta h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    .affiliate-cta p {
+      font-size: 0.9rem;
+      color: #94a3b8;
+      margin-bottom: 18px;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: linear-gradient(90deg, #a855f7, #7c3aed);
+      color: #fff !important;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 10px 24px;
+      border-radius: 8px;
+      text-decoration: none !important;
+      transition: opacity 0.2s;
+    }
+    .cta-btn:hover { opacity: 0.85; }
+
+    /* ===== FAQ ===== */
+    .faq-list { display: flex; flex-direction: column; gap: 16px; }
+    .faq-item {
+      background: #141826;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+    .faq-q {
+      padding: 18px 22px;
+      font-weight: 700;
+      color: #fff;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.97rem;
+    }
+    .faq-q-badge {
+      flex-shrink: 0;
+      background: #f97316;
+      color: #000;
+      font-weight: 800;
+      font-size: 0.8rem;
+      width: 24px; height: 24px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .faq-a {
+      padding: 0 22px 18px 58px;
+      color: #94a3b8;
+      font-size: 0.93rem;
+      line-height: 1.75;
+    }
+
+    /* ===== SECTION IMAGE ===== */
+    .section-image {
+      margin: 28px 0;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(249,115,22,0.15);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
+    .section-image img { border-radius: 13px; }
+    .section-image figcaption {
+      text-align: center;
+      font-size: 0.82rem;
+      color: #64748b;
+      padding: 10px 16px 12px;
+      background: #0d1020;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    /* ===== SUMMARY BOX ===== */
+    .summary-box {
+      background: linear-gradient(135deg, rgba(249,115,22,0.08), rgba(168,85,247,0.06));
+      border: 1px solid rgba(249,115,22,0.25);
+      border-radius: 14px;
+      padding: 28px 32px;
+      margin: 40px 0;
+    }
+    .summary-box h3 {
+      color: #f97316;
+      margin-bottom: 16px;
+      font-size: 1rem;
+    }
+    .summary-box ul { padding-left: 20px; gap: 10px; }
+    .summary-box li { color: #c8d0e0; }
+
+    /* ===== SITE FOOTER ===== */
+    .site-footer {
+      background: #070b14;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 36px 24px;
+      text-align: center;
+    }
+    .site-footer a {
+      color: #f97316;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    .site-footer p {
+      color: #475569;
+      font-size: 0.82rem;
+      margin-top: 8px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 640px) {
+      .hero { padding: 48px 16px 44px; }
+      .container { padding: 0 16px; }
+      .toc { padding: 20px 18px; }
+      .section h2 { font-size: 1.3rem; }
+      .prompt-code { font-size: 0.76rem; }
+      .feature-grid { grid-template-columns: 1fr 1fr; }
+      .affiliate-cta { padding: 22px 18px; }
+    }
+    @media (max-width: 400px) {
+      .feature-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<nav data-nav="breadcrumb" aria-label="パンくずリスト" style="max-width:780px;margin:0 auto;padding:12px 24px;font-size:13px;color:#7b80a0;display:flex;gap:8px;flex-wrap:wrap;"><a href="/" style="color:#9d97ff;text-decoration:none;">トップ</a><span>›</span><a href="/category/ai-side-job/" style="color:#9d97ff;text-decoration:none;">AI副業</a><span>›</span><span style="color:#dde1f0;">Claude 3.5の使い方完全ガイド【2026年版】副業・仕事に即使えるプロンプト集付き</span></nav>
+
+<!-- SITE HEADER -->
+<header class="site-header">
+  <a href="https://www.shift-breeze.com" class="site-title">Shift<span>Breeze</span></a>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">2026年版 完全ガイド</div>
+  <h1>Claude 3.5の<span class="accent">使い方</span>完全ガイド<br>副業・仕事に即使えるプロンプト集付き</h1>
+  <p class="hero-desc">登録から応用まで、実践的なプロンプトテンプレートと共に徹底解説。Artifactsやプロジェクト機能も全網羅。</p>
+  <div class="hero-meta">
+    <span>更新日：2026年4月27日</span>
+    <span>読了時間：約18分</span>
+    <span>文字数：約12,000字</span>
+  </div>
+  <div class="hero-image">
+    <img src="/images/articles/cc_20260427_010406/eyecatch.png" alt="Claude 3.5 使い方完全ガイド" loading="lazy">
+  </div>
+</section>
+
+<!-- MAIN CONTENT -->
+<main class="main-content">
+  <div class="container">
+
+    <!-- TABLE OF CONTENTS -->
+    <nav class="toc">
+      <div class="toc-title">📋 目次</div>
+      <ol>
+        <li><a href="#what-is">Claude 3.5 Sonnetとは？2026年時点での位置づけ</a></li>
+        <li><a href="#pricing">料金プランの選び方｜無料 vs Pro の判断基準</a></li>
+        <li><a href="#howto-start">【5ステップ】今すぐ始める登録ガイド</a></li>
+        <li><a href="#artifacts">Artifacts機能の完全ガイド｜7つの活用パターン</a></li>
+        <li><a href="#projects">プロジェクト機能で副業・仕事を効率化する</a></li>
+        <li><a href="#prompts">副業・仕事別の実践プロンプト集（コピペOK）</a></li>
+        <li><a href="#comparison">ChatGPT・Geminiとの使い分け完全比較</a></li>
+        <li><a href="#tips">知らないと損するClaude 3.5の隠れた実力</a></li>
+        <li><a href="#faq">よくある質問（FAQ）</a></li>
+        <li><a href="#summary">まとめ</a></li>
+      </ol>
+    </nav>
+
+    <!-- SECTION 1: WHAT IS -->
+    <section class="section" id="what-is">
+      <h2>① Claude 3.5 Sonnetとは？2026年時点での位置づけ</h2>
+
+      <p>「ChatGPTより賢い」と話題になったAI——それが<strong>Claude 3.5 Sonnet</strong>です。Anthropic（アンソロピック）が2024年6月にリリースしたこのモデルは、AI界の勢力図を塗り替えた一つの転換点でした。</p>
+
+      <div class="highlight-box">
+        <p><strong>Claude 3.5 Sonnetとは</strong>：Anthropicが開発した大規模言語モデル（LLM）。リリース当時はGPT-4oを多くのベンチマークで上回り、特に<strong>コーディング・長文日本語生成・分析タスク</strong>で圧倒的な評価を獲得した。</p>
+      </div>
+
+      <p>2026年現在、Claude 4シリーズ（Sonnet 4.6、Opus 4.7）がリリースされていますが、<strong>Claude 3.5 SonnetはClaudeの無料版でも引き続き利用可能</strong>です。コストパフォーマンスの高さと高い日本語精度から、多くのユーザーがまだ愛用しています。</p>
+
+      <h3>Claude 3.5シリーズのラインアップ</h3>
+
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h4>Claude 3.5 Sonnet</h4>
+          <p>バランス型。文章生成・コーディング・長文分析に最適。無料版でも利用可能。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🏎️</div>
+          <h4>Claude 3.5 Haiku</h4>
+          <p>軽量高速型。API経由のみ利用可能。大量テキスト処理・自動化タスクに特化。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🧠</div>
+          <h4>Claude 4 Sonnet</h4>
+          <p>最新世代。より高い推論能力・長文処理。Proプランで利用推奨。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🚀</div>
+          <h4>Claude 4 Opus</h4>
+          <p>最高性能モデル。複雑な分析・研究タスク向け。有料プランのみ。</p>
+        </div>
+      </div>
+
+      <h3>2026年でもClaude 3.5が選ばれる3つの理由</h3>
+      <ol>
+        <li><strong>日本語の自然さが群を抜く</strong>：長文を書いても文体が崩れにくく、プロのライター品質に近い文章を生成</li>
+        <li><strong>コーディング精度が高い</strong>：GitHub Copilotの代替として使う開発者も多数。エラー原因の特定と修正提案が非常に正確</li>
+        <li><strong>Artifacts機能でプレビューが可能</strong>：コードや資料の成果物をリアルタイムで確認しながら編集できる独自機能</li>
+      </ol>
+
+      <figure class="section-image">
+        <img src="/images/articles/cc_20260427_010406/claude-overview.png" alt="Claude 3.5 Sonnetの特徴と2026年時点での位置づけ">
+        <figcaption>Claude 3.5 Sonnetの3つの強みと各モデルの使い分け</figcaption>
+      </figure>
+
+      <div class="info-box">
+        <p>📌 <strong>補足</strong>：Claude 3.5 Sonnetは段階的に廃止される予定ですが、Anthropicは廃止の少なくとも数ヶ月前に事前告知を行います。2026年4月現在、claude.aiの無料版で問題なく利用可能です。</p>
+      </div>
+    </section>
+
+    <!-- SECTION 2: PRICING -->
+    <section class="section" id="pricing">
+      <h2>② 料金プランの選び方｜無料 vs Pro の判断基準</h2>
+
+      <p>Claudeは<strong>無料から月額20ドルのProプラン</strong>まで、用途に応じて選べます。副業や業務活用を考えているなら、この料金判断は非常に重要です。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>プラン</th>
+              <th>月額</th>
+              <th>使用量</th>
+              <th>対象ユーザー</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="badge-free">無料</span></td>
+              <td>$0</td>
+              <td>制限あり（時間帯によって変動）</td>
+              <td>試しに使ってみたい人・週数回の利用</td>
+            </tr>
+            <tr>
+              <td><span class="badge-pro">Claude Pro</span></td>
+              <td><strong>月$20</strong>（約3,000円）</td>
+              <td>無料の5倍以上・優先アクセス</td>
+              <td>副業・毎日使う人・最新モデル利用者</td>
+            </tr>
+            <tr>
+              <td><span class="badge-best">Claude Team</span></td>
+              <td>月$25/人（最低5人）</td>
+              <td>Pro以上・管理者機能</td>
+              <td>法人・チーム利用</td>
+            </tr>
+            <tr>
+              <td>API</td>
+              <td>従量課金</td>
+              <td>入力$3/1Mトークン<br>出力$15/1Mトークン</td>
+              <td>開発者・自動化・大量処理</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>こんな人は無料版で十分</h3>
+      <ul>
+        <li>週に数回、メールや文書の作成・校正をしたい</li>
+        <li>単発のアイデア出しや要約作業</li>
+        <li>まずClaudeの実力を試したい</li>
+      </ul>
+
+      <h3>Proプラン（月$20）が必要な人</h3>
+      <ul>
+        <li><strong>副業でAI収益化を目指している</strong>（ライティング・制作）</li>
+        <li>毎日長文記事やコードを複数生成する</li>
+        <li>プロジェクト機能（カスタム指示・ナレッジベース）を使いたい</li>
+        <li>無料版の使用制限に達してしまう</li>
+      </ul>
+
+      <div class="highlight-box">
+        <p>💡 <strong>コスパ計算</strong>：月額約3,000円のProプランで1記事5,000円のWebライティング案件を月7本受注すれば、<strong>月収35,000円から投資回収率1,000%超</strong>。副業で使うなら間違いなく元が取れます。</p>
+      </div>
+    </section>
+
+    <!-- SECTION 3: HOW TO START -->
+    <section class="section" id="howto-start">
+      <h2>③ 【5ステップ】今すぐ始める登録ガイド</h2>
+
+      <p>Claudeはアプリのインストール不要。<strong>ブラウザのみで今すぐ始められます</strong>。Googleアカウントがあれば1分以内に完了します。</p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h4>claude.ai にアクセス</h4>
+            <p>ブラウザで「claude.ai」にアクセスします。スマートフォンからも同様に利用可能です。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h4>「Sign up for free」をクリック</h4>
+            <p>トップページの「Sign up for free」ボタンをクリックしてアカウント作成を開始します。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h4>Googleアカウントでサインアップ</h4>
+            <p>「Continue with Google」を選択するのが最も簡単。メールアドレスやApple IDも選択可能です。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h4>名前と電話番号を入力</h4>
+            <p>プロフィール名と電話番号（SMS認証用）を入力して確認コードを受け取ります。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">5</div>
+          <div class="step-content">
+            <h4>チャット画面でメッセージを送信</h4>
+            <p>ダッシュボードが表示されたら完了！入力欄に質問を打ち込むだけで利用開始です。</p>
+          </div>
+        </div>
+      </div>
+
+      <h3>日本語で使う初期設定（おすすめ）</h3>
+
+      <p>Claudeはデフォルトで英語と日本語を混在させることがあります。以下のひと言を最初に送るだけで、完全な日本語対応になります。</p>
+
+      <div class="prompt-cards">
+        <div class="prompt-card">
+          <div class="prompt-card-header">
+            <div class="label">初期設定</div>
+            <div class="use-case">日本語モードの設定</div>
+          </div>
+          <div class="prompt-code">今後すべての返答は日本語でお願いします。
+また、回答は以下のルールで生成してください：
+- 見出しには「##」や「###」を使ったMarkdown形式
+- 箇条書きは適切に活用
+- 語尾は「です・ます」調
+- 根拠のない情報は提供しない</div>
+          <div class="prompt-tip">✅ これを送ると、以降の会話が全て日本語・Markdown形式で統一されます</div>
+        </div>
+      </div>
+
+      <figure class="section-image">
+        <img src="/images/articles/cc_20260427_010406/signup-flow.png" alt="Claude 3.5 Sonnetの登録ステップ図解">
+        <figcaption>claude.aiの登録から利用開始までのステップ（所要時間：約1〜3分）</figcaption>
+      </figure>
+    </section>
+
+    <!-- SECTION 4: ARTIFACTS -->
+    <section class="section" id="artifacts">
+      <h2>④ Artifacts機能の完全ガイド｜7つの活用パターン</h2>
+
+      <p>Claudeを他のAIと大きく差別化するのが<strong>Artifacts（アーティファクト）機能</strong>。AIが生成したコードや資料を、チャット画面の横にある専用ウィンドウで<strong>リアルタイムプレビューしながら編集</strong>できます。</p>
+
+      <div class="info-box">
+        <p>📌 <strong>Artifactsの使い方</strong>：特別な設定は不要です。Claudeにコード生成・ドキュメント作成・グラフ作成などを依頼すると、自動的にArtifactsウィンドウが開きます。</p>
+      </div>
+
+      <h3>Artifactsで作れる7つのもの</h3>
+
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon">💻</div>
+          <h4>コード</h4>
+          <p>Python、JavaScript、HTML/CSSなど。書いたらその場で実行確認も可能。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🌐</div>
+          <h4>Webページ</h4>
+          <p>HTML+CSSでLP・ランディングページを一発生成。そのままブラウザ表示確認。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h4>フローチャート</h4>
+          <p>Mermaid記法で業務フロー・システム図を視覚化。会議資料に即活用。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⚛️</div>
+          <h4>Reactコンポーネント</h4>
+          <p>インタラクティブなUIパーツをその場で生成・プレビュー。フロントエンド開発を爆速化。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📈</div>
+          <h4>データ可視化</h4>
+          <p>CSVやJSON数値からグラフ・チャートを自動生成。レポート作成に威力を発揮。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎮</div>
+          <h4>ゲーム・アニメーション</h4>
+          <p>テトリス・シューティングゲームなどもコード1行指示で完成。フロントエンド案件で差別化。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📝</div>
+          <h4>Markdownドキュメント</h4>
+          <p>長文レポート・議事録・提案書を構造化して生成。Notionとの連携にも最適。</p>
+        </div>
+      </div>
+
+      <h3>Artifacts活用の実践例：副業LPを10分で作る</h3>
+
+      <div class="prompt-cards">
+        <div class="prompt-card">
+          <div class="prompt-card-header">
+            <div class="label">Artifacts活用</div>
+            <div class="use-case">LP（ランディングページ）の生成</div>
+          </div>
+          <div class="prompt-code">以下の情報でシンプルなランディングページのHTMLを作成してください。
+
+サービス名: [あなたのサービス名]
+ターゲット: [例：副業を始めたい会社員]
+メインコピー: [例：月10万円を目指すAI副業スターターキット]
+特徴3点:
+  1. [特徴1]
+  2. [特徴2]
+  3. [特徴3]
+CTA: [例：今すぐ無料で試す]
+
+レスポンシブ対応で、クリーンなデザインにしてください。</div>
+          <div class="prompt-tip">✅ Artifactsウィンドウにリアルタイムでプレビューが表示され、修正指示を出しながら完成させられます</div>
+        </div>
+      </div>
+
+      <!-- AFFILIATE CTA 1 -->
+      <div class="affiliate-cta">
+        <div class="cta-label">💼 副業スタートなら</div>
+        <h3>AIスキルを活かせる案件を探す</h3>
+        <p>Claude・ChatGPT活用スキルを求めるWebライティング・制作案件が急増中。まずは無料登録して案件を確認してみましょう。</p>
+        <!-- AFFILIATE:category=freelance:label=AI案件を探す -->
+      </div>
+    </section>
+
+    <!-- SECTION 5: PROJECTS -->
+    <section class="section" id="projects">
+      <h2>⑤ プロジェクト機能で副業・仕事を効率化する</h2>
+
+      <p><strong>プロジェクト機能</strong>はClaude Pro/Teamプランの利用者が使える強力な機能です。特定のテーマ・仕事に関連するナレッジベース・チャット履歴・カスタム指示を一元管理できます。</p>
+
+      <div class="highlight-box">
+        <p><strong>プロジェクト機能の3要素</strong>：<br>
+        1️⃣ <strong>ナレッジベース</strong>：参照させたい資料（PDF・URLなど）を事前登録<br>
+        2️⃣ <strong>カスタム指示</strong>：「毎回伝えること」を設定（トーン・ルール・前提）<br>
+        3️⃣ <strong>チャット履歴の統合</strong>：プロジェクト内の会話を連続して記憶</p>
+      </div>
+
+      <h3>副業・仕事での実践的な使い方</h3>
+
+      <h4>① ブログ執筆プロジェクト</h4>
+      <p>ブログのトーン・ターゲット読者・NGワードなどを登録しておくと、毎回「このブログ向けに書いて」と指示するだけで統一感のある記事が生成されます。</p>
+
+      <h4>② 副業クライアント別プロジェクト</h4>
+      <p>クライアントAの案件はプロジェクトA、クライアントBの案件はプロジェクトBとして管理。クライアントごとの業界知識・指示ルールを登録すれば、対応品質が格段にアップします。</p>
+
+      <h4>③ コーディングプロジェクト</h4>
+      <p>READMEやコーディング規約をナレッジベースに入れておくと、毎回同じコーディングスタイルでコードを生成・修正してもらえます。チームの規約に沿ったコードが一発で出てきます。</p>
+
+      <div class="prompt-cards">
+        <div class="prompt-card">
+          <div class="prompt-card-header">
+            <div class="label">プロジェクト設定例</div>
+            <div class="use-case">カスタム指示のテンプレート</div>
+          </div>
+          <div class="prompt-code">あなたは私のブログ「[ブログ名]」の記事ライターアシスタントです。
+
+【ブログ概要】
+テーマ: [例：AI・副業・テクノロジー]
+ターゲット読者: [例：20〜40代のAI副業に興味がある会社員]
+文体: 親しみやすい「です・ます調」。専門用語は必ず解説する。
+
+【記事作成ルール】
+- 根拠なき断言禁止（数値は「〜という報告がある」など表現を調整）
+- 見出しはH2/H3を使った階層構造
+- 各セクションは結論を先に書く（PREP法）
+- 記事の最後に「まとめ」を設置する
+
+【NGワード】
+「必ず稼げる」「絶対に」「誰でも簡単に」</div>
+          <div class="prompt-tip">✅ このカスタム指示をプロジェクトに設定すると、毎回の記事が自動的にブログのトーンに統一されます</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: PROMPTS -->
+    <section class="section" id="prompts">
+      <h2>⑥ 副業・仕事別の実践プロンプト集（コピペOK）</h2>
+
+      <p>ここからが本記事の核心部分。<strong>副業・仕事でClaude 3.5を即戦力として使うための実践プロンプト</strong>を用途別に紹介します。全てコピペしてすぐ使えます。</p>
+
+      <!-- AFFILIATE CTA 2 -->
+      <div class="affiliate-cta">
+        <div class="cta-label">🎓 AIスキルを体系的に学ぶなら</div>
+        <h3>プロンプトエンジニアリングを本格的に習得</h3>
+        <p>独学では見えにくいAI活用の全体像を、体系的なカリキュラムで学べます。</p>
+        <!-- AFFILIATE:category=learning:label=AIプロンプト講座を見る -->
+      </div>
+
+      <h3>① Webライティング（SEO記事）</h3>
+
+      <div class="prompt-cards">
+        <div class="prompt-card">
+          <div class="prompt-card-header">
+            <div class="label">プロンプト #1</div>
+            <div class="use-case">SEO記事の構成案作成</div>
+          </div>
+          <div class="prompt-code">あなたはSEOライターです。以下のキーワードで読者の検索意図に完全に答える記事構成案を作成してください。
+
+キーワード: [メインキーワード]
+ターゲット読者: [読者像を具体的に。例：副業で月5万円を目指す30代会社員]
+文字数目標: [例：8,000〜10,000字]
+競合記事にない視点: [例：実際の月収例、失敗談、プロンプト例]
+
+構成案には以下を含めてください：
+1. この記事を読んでできるようになること（リード文の骨子）
+2. H2見出し（各見出しの内容概要と推奨文字数）
+3. 読者が疑問に感じるポイントとその回答箇所
+4. 内部リンク候補となるトピック</div>
+          <div class="prompt-tip">✅ これ1本で記事の骨格が完成。あとは各セクションを「##[H2タイトル]のセクションを書いてください」と依頼するだけ</div>
+        </div>
+
+        <div class="prompt-card">
+          <div class="prompt-card-header">
+            <div class="label">プロンプト #2</div>
+            <div class="use-case">リード文（書き出し）の生成</div>
+          </div>
+          <div class="prompt-code">以下のテーマで、読者を引き込むリード文（300〜400字）を3パターン作成してください。
+
+テーマ: [記事テーマ]
+キーワード: [メインキーワード]
+読者が感じている悩み: [例：ChatGPTとの違いが分からない、使い方が複雑そう]
+記事を読んで得られるもの: [例：5分で登録でき、今日から副業に使える知識]
+
+各パターンは切り口を変えてください：
+- パターンA: 問いかけ型（「〜でお悩みではありませんか？」）
+- パターンB: 数字型（「〜だけで▲▲が解決できます」）
+- パターンC: 共感型（読者の状況を先に描く）</div>
+          <div class="prompt-tip">✅ 3パターン比較することで、最も読者に刺さるリード文を選べます</div>
+        </div>
+      </div>
+
+      <h3>② LP・セールスコピー制作</h3>
+
+      <div class="prompt-cards">
+        <div class="prompt-card">
+          <div class="prompt-card-header">
+            <div class="label">プロンプト #3</div>
+            <div class="use-case">ランディングページのコピー一式</div>
+          </div>
+          <div class="prompt-code">以下の商品・サービスのランディングページ用コピーを作成してください。
+
+商品名: [商品・サービス名]
+ターゲット顧客: [具体的な顧客像]
+解決する課題: [顧客が抱える問題]
+解決策の説明: [商品・サービスの特徴]
+競合との差別化点: [他社にない強み]
+価格帯: [例：月額3,000円]
+
+以下のパーツを全て作成してください：
+【ヘッドライン】（5バリエーション）
+【サブヘッドライン】（2バリエーション）
+【ベネフィット3点】（箇条書き）
+【よくある反論への答え】（FAQセクション）
+【CTA文言】（ボタンテキスト3案）
+【P.S.（追伸）文】</div>
+          <div class="prompt-tip">✅ LP制作案件は1本3〜10万円が相場。このプロンプトで効率を10倍にできます</div>
+        </div>
+      </div>
+
+      <h3>③ ビジネス提案書・資料作成</h3>
+
+      <div class="prompt-cards">
+        <div class="prompt-card">
+          <div class="prompt-card-header">
+            <div class="label">プロンプト #4</div>
+            <div class="use-case">提案書・プレゼン構成の作成</div>
+          </div>
+          <div class="prompt-code">以下の内容でビジネス提案書のアウトラインを作成してください。
+
+提案の目的: [例：業務効率化のためのAI導入提案]
+対象クライアント: [業種・規模。例：中堅製造業、従業員200名]
+解決したい課題: [課題を具体的に]
+提案する解決策: [解決策の概要]
+期待される効果（数値目標）: [例：事務工数30%削減]
+予算感: [例：月額50万円]
+
+スライド10枚分の構成案と各スライドの要点を作成してください。
+各スライドには：
+- スライドタイトル
+- 伝えるべきメッセージ（1〜2文）
+- 使うべきデータ・根拠の指針
+を含めてください。</div>
+          <div class="prompt-tip">✅ 提案書の構成が決まれば、各スライドを個別に依頼するだけで資料が完成します</div>
+        </div>
+      </div>
+
+      <h3>④ プログラミング補助・コードレビュー</h3>
+
+      <div class="prompt-cards">
+        <div class="prompt-card">
+          <div class="prompt-card-header">
+            <div class="label">プロンプト #5</div>
+            <div class="use-case">コードのレビューと改善</div>
+          </div>
+          <div class="prompt-code">以下のコードをレビューして改善案を提示してください。
+
+【コード】
+```[言語名]
+[ここにコードを貼り付け]
+```
+
+【改善してほしい観点】
+1. パフォーマンスの最適化
+2. コードの可読性向上（変数名・関数名の改善含む）
+3. エラーハンドリングの追加
+4. セキュリティ上の問題点の指摘
+
+各問題点について：
+- 現在のコードの問題
+- 改善後のコード
+- 改善の理由
+を明示してください。</div>
+          <div class="prompt-tip">✅ Claudeのコードレビューは非常に精度が高く、経験豊富なエンジニアのレビューに匹敵します</div>
+        </div>
+
+        <div class="prompt-card">
+          <div class="prompt-card-header">
+            <div class="label">プロンプト #6</div>
+            <div class="use-case">仕様からコードの自動生成</div>
+          </div>
+          <div class="prompt-code">以下の仕様に基づいて[言語名]でコードを実装してください。
+
+【機能概要】
+[何をする機能か1〜2文で]
+
+【入力】
+- [入力データの説明]
+
+【出力】
+- [出力データの説明]
+
+【処理の流れ】
+1. [ステップ1]
+2. [ステップ2]
+3. [ステップ3]
+
+【考慮すべき例外・エラーケース】
+- [例外1]
+- [例外2]
+
+コードと共に、以下も提供してください：
+- 各関数の役割説明コメント
+- 基本的なテストケース（3つ以上）
+- 使用例</div>
+          <div class="prompt-tip">✅ 詳細な仕様を渡すほど、精度の高いコードが生成されます。Artifactsでプレビューしながら調整が可能です</div>
+        </div>
+      </div>
+
+      <h3>⑤ マーケティング・データ分析</h3>
+
+      <div class="prompt-cards">
+        <div class="prompt-card">
+          <div class="prompt-card-header">
+            <div class="label">プロンプト #7</div>
+            <div class="use-case">競合分析レポートの作成</div>
+          </div>
+          <div class="prompt-code">以下の情報をもとに競合分析レポートを作成してください。
+
+分析対象業界: [業界名]
+自社サービス: [サービス名と概要]
+競合A: [競合A名・URL・特徴]
+競合B: [競合B名・URL・特徴]
+競合C: [競合C名・URL・特徴]
+
+以下の観点で比較・分析してください：
+1. 各社の強みと弱みの比較表（SWOT形式）
+2. 価格帯と提供価値の比較
+3. ターゲット顧客の違い
+4. 自社が差別化できるポイント（3つ以上）
+5. 自社が取るべき推奨戦略（短期・中期）
+
+最後に、優先度を付けたアクションリストを作成してください。</div>
+          <div class="prompt-tip">✅ マーケティング支援・コンサル案件で即活用できます。Mermaid記法で図解化も可能</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: COMPARISON -->
+    <section class="section" id="comparison">
+      <h2>⑦ ChatGPT・Geminiとの使い分け完全比較</h2>
+
+      <p>「ClaudeとChatGPT、どちらを使うべきか？」という質問は非常によく受けます。答えは<strong>「用途によって使い分ける」</strong>です。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>用途</th>
+              <th>Claude 3.5</th>
+              <th>ChatGPT GPT-4o</th>
+              <th>Gemini 1.5</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>長文日本語ライティング</strong></td>
+              <td><span class="check">◎</span></td>
+              <td><span class="triangle">○</span></td>
+              <td><span class="triangle">○</span></td>
+            </tr>
+            <tr>
+              <td><strong>コーディング・デバッグ</strong></td>
+              <td><span class="check">◎</span></td>
+              <td><span class="check">◎</span></td>
+              <td><span class="triangle">○</span></td>
+            </tr>
+            <tr>
+              <td><strong>データ分析・レポート</strong></td>
+              <td><span class="check">◎</span></td>
+              <td><span class="check">◎</span></td>
+              <td><span class="check">◎</span></td>
+            </tr>
+            <tr>
+              <td><strong>リアルタイムWeb検索</strong></td>
+              <td><span class="triangle">△</span></td>
+              <td><span class="check">◎</span></td>
+              <td><span class="check">◎</span></td>
+            </tr>
+            <tr>
+              <td><strong>画像生成</strong></td>
+              <td><span class="cross">×</span></td>
+              <td><span class="check">◎</span>（DALL-E 3）</td>
+              <td><span class="triangle">△</span></td>
+            </tr>
+            <tr>
+              <td><strong>コードのプレビュー</strong></td>
+              <td><span class="check">◎</span>（Artifacts）</td>
+              <td><span class="triangle">○</span></td>
+              <td><span class="cross">×</span></td>
+            </tr>
+            <tr>
+              <td><strong>倫理的安全性</strong></td>
+              <td><span class="check">◎</span>（Constitutional AI）</td>
+              <td><span class="triangle">○</span></td>
+              <td><span class="triangle">○</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Claudeが圧倒的に向いている場面</h3>
+
+      <ul>
+        <li><strong>長い日本語文章を高品質で生成したい</strong>：ブログ記事・提案書・マニュアルなど、5,000字以上の長文でも文体が崩れにくい</li>
+        <li><strong>コードの細部まで丁寧にレビューしてほしい</strong>：エラーの原因特定と修正提案が非常に詳細で正確</li>
+        <li><strong>コードをその場でプレビューしたい</strong>：Artifacts機能でブラウザプレビューしながら修正できる</li>
+        <li><strong>AIの安全性・誠実さを重視する</strong>：AnthropicのConstitutional AI（憲法的AI）技術により、誤情報を断言するリスクが低い</li>
+      </ul>
+
+      <h3>ChatGPTを選ぶべき場面</h3>
+      <ul>
+        <li>最新情報をリアルタイムWeb検索して答えてほしい</li>
+        <li>DALL-E 3で画像を生成したい</li>
+        <li>GPTs（カスタムGPT）を使いたい</li>
+      </ul>
+
+      <div class="highlight-box">
+        <p>💡 <strong>最強の使い方</strong>：Claudeで長文作成・コーディング → ChatGPTで最新情報収集・画像生成 という<strong>2ツール併用</strong>が副業・仕事効率を最大化します。月$20×2 = 約6,000円の投資で、プロレベルのアウトプットが可能になります。</p>
+      </div>
+
+      <h3>ベンチマーク比較（主要指標）</h3>
+
+      <div class="compare-item">
+        <div class="compare-label">
+          <span>コーディング（HumanEval）</span>
+          <span>Claude 3.5: 92%</span>
+        </div>
+        <div class="compare-bar-bg"><div class="compare-bar" style="width:92%"></div></div>
+      </div>
+      <div class="compare-item">
+        <div class="compare-label">
+          <span>数学的推論（MATH）</span>
+          <span>Claude 3.5: 71.1%</span>
+        </div>
+        <div class="compare-bar-bg"><div class="compare-bar" style="width:71%"></div></div>
+      </div>
+      <div class="compare-item">
+        <div class="compare-label">
+          <span>視覚理解（MMMU）</span>
+          <span>Claude 3.5: 68.3%</span>
+        </div>
+        <div class="compare-bar-bg"><div class="compare-bar" style="width:68%"></div></div>
+      </div>
+      <div class="compare-item">
+        <div class="compare-label">
+          <span>大学院レベルの知識（GPQA）</span>
+          <span>Claude 3.5: 59.4%</span>
+        </div>
+        <div class="compare-bar-bg"><div class="compare-bar" style="width:59%"></div></div>
+      </div>
+    </section>
+
+    <!-- SECTION 8: TIPS -->
+    <section class="section" id="tips">
+      <h2>⑧ 知らないと損するClaude 3.5の隠れた実力</h2>
+
+      <p>多くの記事では紹介されていない、Claude 3.5の<strong>実践ユーザーが語る隠れた強み</strong>をご紹介します。</p>
+
+      <h3>1. ファイル・画像のアップロードで分析能力が爆上がり</h3>
+      <p>Claude 3.5はPDF・Word・画像・スプレッドシートなどをアップロードして分析できます。「この契約書の問題点を指摘して」「このグラフから読み取れることを教えて」といった使い方が可能です。</p>
+
+      <h3>2. Computer Use（コンピューター操作）機能（API版）</h3>
+      <p>API版のClaude 3.5 Sonnetには<strong>Computer Use</strong>という革新的な機能があります。Claudeが画面を見て、クリック・テキスト入力などの操作を自動実行できます。リピート業務・データ収集の自動化に活用されています。</p>
+
+      <div class="info-box">
+        <p>📌 Computer UseはAPIを通じたベータ版機能です。通常のclaude.aiインターフェースからは利用できません。開発者向けの機能として提供されています。</p>
+      </div>
+
+      <h3>3. 長いコンテキストウィンドウ（200,000トークン）</h3>
+      <p>Claude 3.5 Sonnetは<strong>最大20万トークン</strong>（日本語で約15万字相当）のコンテキストウィンドウを持ちます。長い仕様書・マニュアル・コードベース全体を一括で渡せるため、大型プロジェクトでの活躍が際立ちます。</p>
+
+      <h3>4. 「考え方を見せて」で精度が劇的に上がる</h3>
+      <p>複雑な問題に対して<strong>「ステップバイステップで考えてから答えてください」</strong>と追加するだけで、回答の精度が大幅に上がります。これはChain of Thought（思考の連鎖）プロンプトと呼ばれる技術で、Claude 3.5との相性が特に優れています。</p>
+
+      <div class="prompt-cards">
+        <div class="prompt-card">
+          <div class="prompt-card-header">
+            <div class="label">精度向上テクニック</div>
+            <div class="use-case">Chain of Thoughtプロンプト</div>
+          </div>
+          <div class="prompt-code">[通常の質問やタスクの前に追加する]
+
+この問題を解く前に、以下の順で考えてください：
+1. 問題の本質は何か？
+2. 考慮すべき要因を全てリストアップ
+3. 各アプローチのメリット・デメリットを検討
+4. 最適解を選んだ理由を明示
+5. 最終的な答えを提示
+
+---
+[以降に実際の質問・タスクを記述]</div>
+          <div class="prompt-tip">✅ 分析・戦略立案・複雑な問題解決のプロンプトにこのテンプレートを先頭に追加するだけで精度が大幅向上します</div>
+        </div>
+      </div>
+
+      <h3>5. 副業収入の実績データ（2025〜2026年）</h3>
+      <p>Claude・ChatGPTなどAIを活用した副業に関する調査では、<strong>AI活用者の副業月収平均は約6万8,200円</strong>（2025年調査）という報告があります。特にWebライティング・LP制作・コーディング代行の領域では、AIを使うことで作業時間が1/3〜1/5になり、単価の高い案件を効率よくこなせると報告されています。</p>
+
+      <figure class="section-image">
+        <img src="/images/articles/cc_20260427_010406/workflow-diagram.png" alt="Claude 3.5を使った副業ワークフロー図">
+        <figcaption>Claude 3.5を活用した副業ライティング・制作の効率化ワークフロー</figcaption>
+      </figure>
+
+      <!-- AFFILIATE CTA 3 -->
+      <div class="affiliate-cta">
+        <div class="cta-label">📱 AIツールを使って副業を始めるなら</div>
+        <h3>副業AIツールのお得なプランを比較する</h3>
+        <p>Claude Pro・ChatGPT Plus・その他AIツールのコスパを一覧で比較。あなたの副業スタイルに最適なツールが見つかります。</p>
+        <!-- AFFILIATE:category=saas:label=AIツールプランを比較する -->
+      </div>
+    </section>
+
+    <!-- SECTION 9: FAQ -->
+    <section class="section" id="faq">
+      <h2>⑨ よくある質問（FAQ）</h2>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q">
+            <span class="faq-q-badge">Q</span>
+            Claude 3.5とClaude 4の違いは何ですか？
+          </div>
+          <div class="faq-a">Claude 4シリーズ（Sonnet 4.6、Opus 4.7）は最新世代のモデルで、より高い推論能力・長文処理能力・最新知識を持ちます。Claude 3.5 Sonnetは一世代前ですが、コーディング・長文ライティングにおいては依然として非常に高い性能を発揮し、無料版でも利用可能です。日常的な作業ならClaude 3.5で十分な場合が多く、より複雑な推論タスクにClaude 4を使うという使い分けが効率的です。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">
+            <span class="faq-q-badge">Q</span>
+            無料版の利用制限はどれくらいですか？
+          </div>
+          <div class="faq-a">Claudeは具体的な回数制限を公開していませんが、一定時間内に多くのメッセージを送ると「使用制限に達しました」と表示されます。1〜数時間待つか、次の日になると復活します。副業や業務で毎日使う場合はPro（月$20）への移行を推奨します。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">
+            <span class="faq-q-badge">Q</span>
+            入力したデータや会話内容はAnthropicに学習されますか？
+          </div>
+          <div class="faq-a">デフォルトでは会話内容がモデル改善に使用される可能性があります。機密情報を扱う場合は、プライバシー設定から「会話を学習に使用しない」を選択するか、Teamプランを利用することをお勧めします。Anthropicのプライバシーポリシーで詳細が確認できます。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">
+            <span class="faq-q-badge">Q</span>
+            Claude 3.5 Sonnetはいつ廃止されますか？
+          </div>
+          <div class="faq-a">Anthropicは廃止の数ヶ月前に事前告知を行います。2026年4月現在、claude.aiの無料版でClaude 3.5 Sonnetは引き続き利用可能です。APIで使っている場合も、廃止前に移行期間が設けられるため、急に使えなくなることはありません。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">
+            <span class="faq-q-badge">Q</span>
+            日本語の精度はChatGPTよりも高いですか？
+          </div>
+          <div class="faq-a">特に長文（5,000字以上）のライティングにおいては、多くのユーザーがClaudeの日本語品質を高く評価しています。語尾の統一感・文章の流れ・自然な表現の維持において優れているという声が多いです。ただし、どちらが絶対に優れているとは言えず、実際に両方試してみることをおすすめします。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">
+            <span class="faq-q-badge">Q</span>
+            Artifactsはスマートフォンでも使えますか？
+          </div>
+          <div class="faq-a">モバイルブラウザでもArtifacts機能は利用できますが、コードのプレビューや編集のしやすさを考えると、PCでの利用が圧倒的に快適です。スマートフォンはテキスト生成・質問・アイデア出しなど、シンプルな用途での利用に向いています。</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 10: SUMMARY -->
+    <section class="section" id="summary">
+      <h2>⑩ まとめ</h2>
+
+      <p>本記事では、Claude 3.5 Sonnetの使い方について、2026年時点の最新情報と共に網羅的に解説しました。</p>
+
+      <div class="summary-box">
+        <h3>📌 この記事のポイントまとめ</h3>
+        <ul>
+          <li>Claude 3.5 Sonnetは2026年現在も無料版で利用可能。コーディング・長文ライティングで依然トップクラスの性能</li>
+          <li>無料版は週数回の利用に最適。副業・業務活用にはProプラン（月$20 ≒ 約3,000円）が断然お得</li>
+          <li>登録はGoogleアカウントで1分以内に完了</li>
+          <li>Artifacts機能でコード・Webページ・フローチャートをリアルタイムプレビューしながら編集可能</li>
+          <li>プロジェクト機能でカスタム指示を設定すれば、毎回の作業品質が飛躍的に向上</li>
+          <li>WebライティングからLP制作、コーディング補助まで、具体的なプロンプトを本記事から即コピペ活用可能</li>
+          <li>ChatGPTとの使い分けが最強戦略：長文作成はClaude、画像生成・最新情報はChatGPT</li>
+        </ul>
+      </div>
+
+      <p>AIツールは「知っている人」と「知らない人」の間に、作業速度・品質・収入の大きな差を生み出しています。Claude 3.5は今日から無料で使えます。まずは5分で登録して、本記事のプロンプトテンプレートを一つ試してみてください。</p>
+
+      <p>副業・仕事でAIを活用しているあなたの体験談、ぜひコメントで教えてください。</p>
+    </section>
+
+  </div><!-- /container -->
+</main>
+
+<!-- SITE FOOTER -->
+<footer class="site-footer">
+  <a href="https://www.shift-breeze.com">shift-breeze.com</a>
+  <p>&copy; ShiftBreeze</p>
+</footer>
+
+<section data-nav="related" data-task-id="cc_20260427_010406" data-category="ai-side-job" style="max-width:780px;margin:48px auto 32px;padding:0 24px;"><h2 style="font-size:20px;font-weight:700;color:#fff;margin:0 0 16px;padding:0;border:none;background:none;">関連記事</h2><div data-related-list style="display:grid;grid-template-columns:1fr;gap:12px;"><div style="color:#7b80a0;font-size:14px;">読み込み中...</div></div><script>(async function(){try{const res=await fetch("/articles/index.json");const data=await res.json();const sec=document.querySelector('[data-nav="related"]');const list=sec.querySelector("[data-related-list]");const me=sec.getAttribute("data-task-id");const cat=sec.getAttribute("data-category");const rel=(data.articles||[]).filter(a=>a.category===cat&&a.task_id!==me).slice(0,4);if(rel.length===0){list.innerHTML='<div style="color:#7b80a0;font-size:14px;">関連記事はまだありません。</div>';return;}list.innerHTML=rel.map(a=>`<a href="${a.url}" style="display:flex;gap:12px;padding:12px;background:#13161f;border:1px solid #1e2133;border-radius:10px;text-decoration:none;color:#dde1f0;">${a.eyecatch?`<img src="${a.eyecatch}" alt="" loading="lazy" style="width:96px;height:64px;object-fit:cover;border-radius:6px;flex-shrink:0;">`:""}<div style="font-size:14px;line-height:1.5;">${a.title}</div></a>`).join("");}catch(e){/* ignore */}})();</script></section>
+</body>
+</html>
